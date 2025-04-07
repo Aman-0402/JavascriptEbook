@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3.1 Logical & Comparison Operators</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background: #eef2f3;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #222;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    pre {
+      background-color: #f9f9f9;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .answer {
+      display: none;
+      background-color: #e6f7ff;
+      border-left: 4px solid #007bff;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 5px;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>3.1 Logical & Comparison Operators</h1>
+    <p><strong>Date:</strong> 03 April 2025 | <strong>Time:</strong> 06:31 AM</p>
+
+    <h2>Comparison Operators</h2>
+    <table>
+      <thead>
+        <tr><th>Operator</th><th>Meaning</th><th>Example (x = 5, y = 10)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>==</td><td>Equal to</td><td>x == y → false</td></tr>
+        <tr><td>!=</td><td>Not equal to</td><td>x != y → true</td></tr>
+        <tr><td>></td><td>Greater than</td><td>x > y → false</td></tr>
+        <tr><td><</td><td>Less than</td><td>x < y → true</td></tr>
+        <tr><td>>=</td><td>Greater or equal</td><td>x >= y → false</td></tr>
+        <tr><td><=</td><td>Less or equal</td><td>x <= y → true</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Logical Operators</h2>
+    <table>
+      <thead>
+        <tr><th>Operator</th><th>Meaning</th><th>Example (a = true, b = false)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>&&</td><td>AND</td><td>a && b → false</td></tr>
+        <tr><td>||</td><td>OR</td><td>a || b → true</td></tr>
+        <tr><td>!</td><td>NOT</td><td>!a → false</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Example</h2>
+    <pre>
+let age = 20;
+if (age >= 18 && age <= 30) {
+  console.log("Eligible for the program");
+} else {
+  console.log("Not eligible");
+}
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">What will be the output?</button>
+        <div class="answer" id="q1">
+          <pre>
+console.log(5 > 3 && 10 < 20); // true
+console.log(5 == "5");         // true (loose comparison)
+console.log(5 === "5");        // false (strict comparison)
+console.log(!(4 >= 4));        // false
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">Write a program to check if age is between 13 and 19.</button>
+        <div class="answer" id="q2">
+          <pre>
+let age = 15;
+if (age >= 13 && age <= 19) {
+  console.log("Teenager");
+} else {
+  console.log("Not a Teenager");
+}
+// Output: Teenager
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">What is the output of: console.log(true || false && false);</button>
+        <div class="answer" id="q3">
+          <pre>
+console.log(true || false && false); // true
+
+// Explanation:
+// false && false → false
+// true || false → true
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a href="topic9.html" class="back-link">← Back to Topic 9</a>
+  </div>
+</body>
+</html>
