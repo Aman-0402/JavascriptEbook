@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2.5 Identify Function Parameters and Return Values</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: left;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, p, ol, li, table, pre {
+      text-align: left;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .answer {
+      display: none;
+      background-color: #f1f1f1;
+      border-left: 4px solid #007bff;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: left;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>2.5 Identify Function Parameters and Return Values</h1>
+    <p>Functions can take parameters to receive data and return values as output.</p>
+
+    <h2>2.5.1 Parameters and Arguments</h2>
+    <pre>
+function sum(a, b) {
+    return a + b;
+}
+console.log(sum(10, 5)); // 15
+    </pre>
+
+    <h2>2.5.2 Default Parameters</h2>
+    <pre>
+function greet(name = "Guest") {
+    return "Hello, " + name;
+}
+console.log(greet()); // Hello, Guest
+    </pre>
+
+    <h2>2.5.3 Returning Values</h2>
+    <pre>
+function square(num) {
+    return num * num;
+}
+console.log(square(5)); // 25
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">Write a function with default parameters for calculating the power of a number.</button>
+        <div class="answer" id="q1">
+          <h4>Answer:</h4>
+          <pre>
+function power(base, exponent = 2) {
+    return Math.pow(base, exponent);
+}
+console.log(power(5)); // Output: 25 (5^2)
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">What will be the output of the following?</button>
+        <div class="answer" id="q2">
+          <h4>Answer:</h4>
+          <pre>
+function check(num) {
+    if (num > 0) return "Positive";
+}
+console.log(check(-5)); // Output: undefined
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">Create a function that accepts three parameters and returns their sum.</button>
+        <div class="answer" id="q3">
+          <h4>Answer:</h4>
+          <pre>
+function sum(a, b, c) {
+    return a + b + c;
+}
+console.log(sum(1, 2, 3)); // Output: 6
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a href="topic2.html" class="back-link">← Back to Topic 2</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2.1 Declare and Initialize Variables</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+      text-align: left;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #333;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    pre {
+      background-color: #f2f2f2;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .answer {
+      display: none;
+      background: #f1f1f1;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 4px solid #007bff;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+      text-align: left;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: left;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      var x = document.getElementById(id);
+      if (x.style.display === "none" || x.style.display === "") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>2.1 Declare and Initialize Variables</h1>
+    <p>In JavaScript, variables store data values. They can be declared using <code>var</code>, <code>let</code>, or <code>const</code>.</p>
+
+    <h2>2.1.1 Using var, let, and const</h2>
+    <ul>
+      <li><strong>var:</strong> Function-scoped, can be re-declared and updated.</li>
+      <li><strong>let:</strong> Block-scoped, can be updated but not re-declared.</li>
+      <li><strong>const:</strong> Block-scoped, cannot be updated or re-declared.</li>
+    </ul>
+
+    <pre>
+var name = "Aman";    // Function-scoped
+let age = 25;         // Block-scoped
+const PI = 3.14159;   // Cannot be reassigned
+    </pre>
+
+    <h2>2.1.2 Variable Initialization</h2>
+    <ul>
+      <li>A variable can be initialized when declared.</li>
+      <li>If declared but not initialized, it holds <code>undefined</code>.</li>
+    </ul>
+
+    <pre>
+let city;
+console.log(city); // Output: undefined
+city = "Delhi";
+console.log(city); // Output: Delhi
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">Declare a variable using var, let, and const, and print their values.</button>
+        <div id="q1" class="answer">
+          <h4>Answer:</h4>
+          <pre>
+var x = 10;
+let y = 20;
+const z = 30;
+console.log(x, y, z); // Output: 10 20 30
+          </pre>
+        </div>
+      </li>
+
+      <li>
+        <button onclick="toggleAnswer('q2')">What will be the output of the following?<br>console.log(x); var x = 5;</button>
+        <div id="q2" class="answer">
+          <h4>Answer:</h4>
+          <pre>
+console.log(x); 
+var x = 5;
+
+// Output: undefined
+// Reason: Due to hoisting, the declaration of x is moved to the top but not the assignment.
+          </pre>
+        </div>
+      </li>
+
+      <li>
+        <button onclick="toggleAnswer('q3')">Declare a constant GRAVITY with a value of 9.8 and try changing its value. What happens?</button>
+        <div id="q3" class="answer">
+          <h4>Answer:</h4>
+          <pre>
+const GRAVITY = 9.8;
+GRAVITY = 10; // Error: Assignment to constant variable.
+
+// JavaScript throws a TypeError because constants cannot be reassigned.
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a class="back-link" href="topic2.html">← Back to Topic 2</a>
+  </div>
+</body>
+</html>

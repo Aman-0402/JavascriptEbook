@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Function Parameters & Return Values</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background-color: #f7f7f7;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .answer {
+      display: none;
+      background-color: #e6f7ff;
+      border-left: 4px solid #007bff;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 5px;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Function Parameters & Return Values</h1>
+
+    <h2>Key Concepts</h2>
+    <ul>
+      <li>JavaScript uses <strong>pass-by-value</strong> for primitives</li>
+      <li>JavaScript uses <strong>pass-by-reference</strong> for objects/arrays</li>
+      <li>To return multiple values, use objects or arrays</li>
+    </ul>
+
+    <h2>Examples</h2>
+    <pre>
+// Pass by Value (Primitives)
+let a = 10;
+function changeValue(num) {
+  num = 20;
+}
+changeValue(a);
+console.log(a); // Output: 10 (unchanged)
+
+// Pass by Reference (Objects)
+let person = { name: "Aman" };
+function changeName(obj) {
+  obj.name = "Raj";
+}
+changeName(person);
+console.log(person.name); // Output: Raj (changed)
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">Write a function that takes two numbers and returns their sum.</button>
+        <div class="answer" id="q1">
+          <pre>
+function sum(a, b) {
+  return a + b;
+}
+console.log(sum(5, 10)); // 15
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">What will be the output?</button>
+        <div class="answer" id="q2">
+          <pre>
+let x = 10;
+function changeX(num) {
+  num = 20;
+}
+changeX(x);
+console.log(x); // Output: 10 (unchanged because numbers are passed by value)
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">Write a function that accepts an object and modifies its age. Will the change reflect outside?</button>
+        <div class="answer" id="q3">
+          <pre>
+let person = { name: "John", age: 30 };
+function modifyPerson(obj) {
+  obj.age = 35;
+}
+modifyPerson(person);
+console.log(person.age); // Output: 35 (objects are passed by reference)
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a href="topic2.html" class="back-link">← Back to Topic 2</a>
+  </div>
+</body>
+</html>

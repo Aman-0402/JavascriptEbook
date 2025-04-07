@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2.6 Function Scope vs Block Scope</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: left;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, p, ol, li, table, pre {
+      text-align: left;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .answer {
+      display: none;
+      background-color: #f1f1f1;
+      border-left: 4px solid #007bff;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: left;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>2.6 Differentiate Between Function Scope and Block Scope</h1>
+
+    <h2>2.6.1 Function Scope (<code>var</code>)</h2>
+    <pre>
+function example() {
+    var x = 30;
+    if (true) {
+        var y = 20;
+    }
+    console.log(y); // Works because var is function-scoped
+}
+example();
+    </pre>
+
+    <h2>2.6.2 Block Scope (<code>let</code>, <code>const</code>)</h2>
+    <pre>
+function example() {
+    if (true) {
+        let x = 10;
+        const y = 20;
+    }
+    console.log(x); // Error: x is not defined
+}
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">Explain why var can be accessed outside an if block but let cannot.</button>
+        <div class="answer" id="q1">
+          <h4>Answer:</h4>
+          <p>Variables declared with <code>var</code> have function scope, so they are accessible throughout the function, including outside an <code>if</code> block.</p>
+          <p>Variables declared with <code>let</code> or <code>const</code> are limited to the block (<code>{}</code>) where they are defined.</p>
+          <pre>
+if (true) {
+    var a = 10;
+    let b = 20;
+}
+console.log(a); // Output: 10
+console.log(b); // Error: b is not defined
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">Write a program that demonstrates function scope and block scope.</button>
+        <div class="answer" id="q2">
+          <h4>Answer:</h4>
+          <pre>
+function testScope() {
+    var x = 10; // Function scope
+    if (true) {
+        let y = 20; // Block scope
+        console.log(x); // Accessible
+        console.log(y); // Accessible
+    }
+    console.log(x); // Accessible
+    console.log(y); // Error: y is not defined
+}
+testScope();
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">Predict the output:</button>
+        <div class="answer" id="q3">
+          <h4>Code:</h4>
+          <pre>
+function test() {
+    let a = 10;
+    if (true) {
+        let a = 20;
+        console.log(a);
+    }
+    console.log(a);
+}
+test();
+          </pre>
+          <h4>Output:</h4>
+          <pre>
+20
+10
+          </pre>
+          <h4>Explanation:</h4>
+          <p>The inner <code>let a = 20</code> is block-scoped and separate from the outer <code>let a = 10</code>.</p>
+        </div>
+      </li>
+    </ol>
+
+    <a href="topic2.html" class="back-link">← Back to Topic 2</a>
+  </div>
+</body>
+</html>

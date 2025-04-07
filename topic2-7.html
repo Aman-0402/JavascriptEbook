@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Checking & Data Conversion</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: left;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, p, ol, li, pre {
+      text-align: left;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .answer {
+      display: none;
+      background-color: #f1f1f1;
+      border-left: 4px solid #007bff;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: left;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Type Checking & Converting Between Data Types</h1>
+
+    <h2>Overview</h2>
+    <p>We use JavaScript functions like <code>typeof</code>, <code>Number()</code>, <code>String()</code>, and <code>Boolean()</code> to convert and check types. This topic also covers:</p>
+    <ul>
+      <li><code>parseInt()</code>, <code>parseFloat()</code></li>
+      <li><code>toFixed()</code>, <code>toPrecision()</code>, <code>toLocaleString()</code></li>
+      <li><code>eval()</code> (use with caution)</li>
+      <li>Strict mode: <code>"use strict"</code></li>
+    </ul>
+
+    <h2>Example: Type Checking & Conversion</h2>
+    <pre>
+"use strict"; // Ensures variables are declared before use
+
+let strNum = "42.75";
+console.log(parseInt(strNum));       // 42
+console.log(parseFloat(strNum));     // 42.75
+
+let num = 123.456;
+console.log(num.toFixed(2));         // "123.46"
+console.log(num.toPrecision(4));     // "123.5"
+console.log(num.toLocaleString());   // Output depends on locale
+
+console.log(typeof strNum);          // "string"
+console.log(typeof num);             // "number"
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">What will be the output of the following?</button>
+        <div class="answer" id="q1">
+          <pre>
+console.log(typeof NaN);        // "number"
+console.log(typeof null);       // "object"
+console.log(typeof undefined);  // "undefined"
+          </pre>
+          <p>
+            <strong>Explanation:</strong><br>
+            • NaN (Not a Number) is still considered a number.<br>
+            • null is a special primitive value, and historically returns "object".<br>
+            • undefined means the variable was declared but not assigned a value.
+          </p>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">Convert "123.456" to:</button>
+        <div class="answer" id="q2">
+          <pre>
+let strNum = "123.456";
+console.log(parseInt(strNum));            // 123 (integer)
+console.log(parseFloat(strNum));          // 123.456 (float)
+console.log(Number(strNum).toFixed(2));   // "123.46" (rounded)
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">Write a JavaScript function that checks if a given input is a number.</button>
+        <div class="answer" id="q3">
+          <pre>
+function isNumber(value) {
+    return typeof value === "number" && !isNaN(value);
+}
+console.log(isNumber(42));    // true
+console.log(isNumber("42"));  // false
+console.log(isNumber(NaN));   // false
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a href="topic2.html" class="back-link">← Back to Topic 2</a>
+  </div>
+</body>
+</html>

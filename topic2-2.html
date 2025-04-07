@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2.2 Identify and Use Different Data Types</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: left;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    h1, h2, p, ol, li, table, pre {
+      text-align: left;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .answer {
+      display: none;
+      background-color: #f1f1f1;
+      border-left: 4px solid #28a745;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: left;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>2.2 Identify and Use Different Data Types</h1>
+    <p>JavaScript supports multiple data types categorized into <strong>primitive</strong> and <strong>non-primitive</strong> (reference) types.</p>
+
+    <h2>2.2.1 Primitive Data Types</h2>
+    <table>
+      <tr><th>Data Type</th><th>Example</th><th>Description</th></tr>
+      <tr><td>String</td><td>"Hello"</td><td>Sequence of characters</td></tr>
+      <tr><td>Number</td><td>42, 3.14</td><td>Integer or decimal</td></tr>
+      <tr><td>Boolean</td><td>true, false</td><td>Logical values</td></tr>
+      <tr><td>Null</td><td>null</td><td>Intentional empty value</td></tr>
+      <tr><td>Undefined</td><td>let x;</td><td>Declared but not assigned</td></tr>
+      <tr><td>Symbol</td><td>Symbol("id")</td><td>Unique and immutable</td></tr>
+      <tr><td>BigInt</td><td>9007199254740991n</td><td>For large integers</td></tr>
+    </table>
+
+    <pre>
+let str = "JavaScript";
+let num = 100;
+let isAvailable = true;
+let emptyValue = null;
+let notAssigned;
+console.log(typeof str, typeof num, typeof isAvailable, typeof emptyValue, typeof notAssigned);
+    </pre>
+
+    <h2>2.2.2 Non-Primitive (Reference) Data Types</h2>
+    <table>
+      <tr><th>Data Type</th><th>Example</th><th>Description</th></tr>
+      <tr><td>Object</td><td>{name: "Aman", age: 25}</td><td>Key-value pairs</td></tr>
+      <tr><td>Array</td><td>[1, 2, 3]</td><td>List of values</td></tr>
+      <tr><td>Function</td><td>function() { return "Hi"; }</td><td>Block of code</td></tr>
+    </table>
+
+    <pre>
+let person = { name: "Aman", age: 25 };
+let colors = ["red", "blue", "green"];
+let greet = function() { return "Hello!"; };
+console.log(typeof person, typeof colors, typeof greet);
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">Write a program to check the type of different variables.</button>
+        <div class="answer" id="q1">
+          <h4>Answer:</h4>
+          <pre>
+let name = "Aman";
+let age = 25;
+let isStudent = true;
+let marks = null;
+let city;
+console.log(typeof name, typeof age, typeof isStudent, typeof marks, typeof city);
+// Output: string number boolean object undefined
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">Declare an object representing a car with properties brand, model, and year.</button>
+        <div class="answer" id="q2">
+          <h4>Answer:</h4>
+          <pre>
+let car = {
+  brand: "Toyota",
+  model: "Corolla",
+  year: 2022
+};
+console.log(car);
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">Create an array of your favorite programming languages.</button>
+        <div class="answer" id="q3">
+          <h4>Answer:</h4>
+          <pre>
+let languages = ["JavaScript", "Python", "Java"];
+console.log(languages);
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a href="topic2.html" class="back-link">← Back to Topic 2</a>
+  </div>
+</body>
+</html>

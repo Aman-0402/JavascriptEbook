@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Functions in JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f2f5;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background-color: #f7f7f7;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .answer {
+      display: none;
+      background-color: #e6f7ff;
+      border-left: 4px solid #007bff;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 5px;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Math Functions in JavaScript</h1>
+
+    <h2>Key Concepts</h2>
+    <ul>
+      <li><code>Math.random()</code> – Generates a number between 0 and 1</li>
+      <li><code>Math.round()</code>, <code>Math.floor()</code>, <code>Math.ceil()</code></li>
+      <li><code>Math.pow(base, exponent)</code>, <code>Math.sqrt()</code></li>
+      <li><code>Math.min()</code> and <code>Math.max()</code></li>
+    </ul>
+
+    <h2>Examples</h2>
+    <pre>
+console.log(Math.random());        // Random number between 0 and 1
+console.log(Math.floor(4.9));     // 4
+console.log(Math.ceil(4.1));      // 5
+console.log(Math.round(4.5));     // 5
+console.log(Math.pow(2, 3));      // 8
+console.log(Math.sqrt(16));       // 4
+console.log(Math.min(1, 5, 10));  // 1
+console.log(Math.max(1, 5, 10));  // 10
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">Generate a random number between 1 and 100.</button>
+        <div class="answer" id="q1">
+          <pre>
+let randomNum = Math.floor(Math.random() * 100) + 1;
+console.log(randomNum);
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">What will be the output of the following?</button>
+        <div class="answer" id="q2">
+          <pre>
+console.log(Math.round(4.6)); // 5
+console.log(Math.floor(4.6)); // 4
+console.log(Math.ceil(4.6));  // 5
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">Find the square root of 144 and the cube of 5.</button>
+        <div class="answer" id="q3">
+          <pre>
+console.log(Math.sqrt(144));    // 12
+console.log(Math.pow(5, 3));    // 125
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a href="topic2.html" class="back-link">← Back to Topic 2</a>
+  </div>
+</body>
+</html>

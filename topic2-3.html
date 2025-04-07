@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2.3 Perform Type Conversions</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: left;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    h1, h2, p, ol, li, table, pre {
+      text-align: left;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .answer {
+      display: none;
+      background-color: #f1f1f1;
+      border-left: 4px solid #28a745;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: left;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>2.3 Perform Type Conversions</h1>
+    <p>JavaScript allows converting one type of data to another either automatically or manually.</p>
+
+    <h2>2.3.1 Implicit Type Conversion (Coercion)</h2>
+    <p>JavaScript automatically converts values from one type to another when required.</p>
+
+    <pre>
+console.log("5" + 2); // "52" (string)
+console.log("5" - 2); // 3 (number)
+console.log(true + 1); // 2
+    </pre>
+
+    <h2>2.3.2 Explicit Type Conversion</h2>
+    <p>Use built-in functions like <code>Number()</code>, <code>String()</code>, <code>Boolean()</code>, and <code>parseInt()</code> to manually convert data types.</p>
+
+    <pre>
+let numStr = "123";
+let num = Number(numStr); // Converts string to number
+console.log(num + 1); // 124
+
+let boolVal = Boolean(0); // false
+console.log(boolVal);
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">Convert "2025" to a number and add 5.</button>
+        <div class="answer" id="q1">
+          <h4>Answer:</h4>
+          <pre>
+let year = "2025";
+let numYear = Number(year);
+console.log(numYear + 5); // Output: 2030
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">Convert 0 and 1 to boolean values.</button>
+        <div class="answer" id="q2">
+          <h4>Answer:</h4>
+          <pre>
+console.log(Boolean(0)); // Output: false
+console.log(Boolean(1)); // Output: true
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">Convert a boolean true into a string.</button>
+        <div class="answer" id="q3">
+          <h4>Answer:</h4>
+          <pre>
+let boolValue = true;
+let strBool = String(boolValue);
+console.log(strBool); // Output: "true"
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a href="topic2.html" class="back-link">← Back to Topic 2</a>
+  </div>
+</body>
+</html>

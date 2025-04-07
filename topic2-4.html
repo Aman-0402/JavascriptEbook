@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2.4 Define and Invoke Functions</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: left;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, p, ol, li, table, pre {
+      text-align: left;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .answer {
+      display: none;
+      background-color: #f1f1f1;
+      border-left: 4px solid #007bff;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: left;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>2.4 Define and Invoke Functions</h1>
+    <p>Functions are reusable blocks of code that perform specific tasks.</p>
+
+    <h2>2.4.1 Function Declaration</h2>
+    <pre>
+function greet(name) {
+    return "Hello, " + name;
+}
+console.log(greet("Aman"));
+    </pre>
+
+    <p>You can also take input from the user:</p>
+    <pre>
+&lt;script&gt;
+    function greet(name) {
+        return "Hello, " + name;
+    }
+    let userName = prompt("Enter your name:");
+    console.log(greet(userName));
+&lt;/script&gt;
+    </pre>
+
+    <h2>2.4.2 Function Expression</h2>
+    <pre>
+const add = function (a, b) {
+    return a + b;
+};
+console.log(add(3, 4)); // 7
+    </pre>
+
+    <h2>2.4.3 Arrow Functions (ES6)</h2>
+    <pre>
+const multiply = (a, b) => a * b;
+console.log(multiply(3, 4)); // 12
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">Write a function that calculates the area of a rectangle.</button>
+        <div class="answer" id="q1">
+          <h4>Answer:</h4>
+          <pre>
+function areaRectangle(length, width) {
+    return length * width;
+}
+console.log(areaRectangle(5, 4)); // Output: 20
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">Convert a function expression to an arrow function.</button>
+        <div class="answer" id="q2">
+          <h4>Answer:</h4>
+          <pre>
+const add = (a, b) => a + b;
+console.log(add(3, 4)); // Output: 7
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">Write a function that takes two numbers and returns the larger number.</button>
+        <div class="answer" id="q3">
+          <h4>Answer:</h4>
+          <pre>
+function maxNumber(a, b) {
+    return a > b ? a : b;
+}
+console.log(maxNumber(10, 20)); // Output: 20
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a href="topic2.html" class="back-link">← Back to Topic 2</a>
+  </div>
+</body>
+</html>

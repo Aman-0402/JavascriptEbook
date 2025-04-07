@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1.1 Assignment and Arithmetic Operators</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+      text-align: left;
+    }
+    h1, h2 {
+      color: #333;
+      margin-left: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #e8e8e8;
+    }
+    pre {
+      background-color: #f2f2f2;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+      text-align: left;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .answer {
+  display: none;
+  background: #f1f1f1;
+  padding: 10px;
+  margin: 10px 0;
+  border-left: 4px solid #007bff;
+  border-radius: 5px;
+}
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+<h2>1.3 Evaluate the Use of Internal and External Scripts</h2>
+<p>JavaScript can be included in HTML in two ways:</p>
+
+<h3>1.3.1 Internal Script</h3>
+<p>Placed inside &lt;script&gt; tag in HTML:</p>
+<pre>
+&lt;script&gt;
+    function greet() {
+        alert("Hello, World!");
+    }
+&lt;/script&gt;
+</pre>
+
+<h3>1.3.2 External Script</h3>
+<p>Stored in a .js file and linked in HTML:</p>
+<pre>
+&lt;script src="script.js"&gt;&lt;/script&gt;
+</pre>
+
+<h4>Advantages of External Scripts:</h4>
+<ul>
+  <li>Improves performance (cached by browser).</li>
+  <li>Enhances code reusability.</li>
+  <li>Keeps HTML cleaner.</li>
+</ul>
+
+<h4>What happens when scripts are used at multiple levels?</h4>
+<ul>
+  <li>Internal script overrides external script if placed after &lt;script src="script.js"&gt;.</li>
+  <li>If multiple external scripts modify the same variable, the last loaded script takes precedence.</li>
+</ul>
+
+<h3>Practice Questions</h3>
+<ol>
+  <li>
+    <button onclick="toggleAnswer('script-q1')">
+      1. Write an HTML file with an internal JavaScript script that displays an alert.
+    </button>
+    <div id="script-q1" class="answer" style="display:none;">
+      <h4>Answer:</h4>
+      <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Internal Script&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script&gt;
+        alert("Hello from Internal Script!");
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+    </div>
+  </li>
+
+  <li>
+    <button onclick="toggleAnswer('script-q2')">
+      2. Create an external .js file and link it to an HTML page.
+    </button>
+    <div id="script-q2" class="answer" style="display:none;">
+      <h4>Answer:</h4>
+      <pre>
+// script.js
+function showMessage() {
+    alert("Hello from External Script!");
+}
+
+// Link this in an HTML file:
+&lt;script src="script.js"&gt;&lt;/script&gt;
+      </pre>
+    </div>
+  </li>
+
+  <li>
+    <button onclick="toggleAnswer('script-q3')">
+      3. Experiment by using both internal and external scripts for the same function. What happens?
+    </button>
+    <div id="script-q3" class="answer" style="display:none;">
+      <h4>Answer:</h4>
+      <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        function showMessage() {
+            alert("This will override the external script!");
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button onclick="showMessage()"&gt;Click Me&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+// What happens?
+// The internal script will override the external script if defined later in the HTML file.
+      </pre>
+    </div>
+  </li>
+</ol>
+
+
+
+
+
+
+    <a class="back-link" href="topic1.html">← Back to Subtopics</a>
+</div>
+  <script>
+    function toggleAnswer(id) {
+      const answer = document.getElementById(id);
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+  <!-- <script>
+    function toggleAnswer(id) {
+      const el = document.getElementById(id);
+      if (el.style.display === 'none') {
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    }
+  </script> -->
+  
+</body>
+</html>

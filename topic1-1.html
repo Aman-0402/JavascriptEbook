@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>1.1 Assignment and Arithmetic Operators</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+        text-align: left;
+      }
+      h1,
+      h2 {
+        color: #333;
+        margin-left: 0;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #e8e8e8;
+      }
+      pre {
+        background-color: #f2f2f2;
+        padding: 10px;
+        border-radius: 8px;
+        overflow-x: auto;
+        text-align: left;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      ol {
+        padding-left: 20px;
+      }
+      .back-link {
+        display: block;
+        margin-top: 30px;
+        text-align: left;
+      }
+      .answer {
+        display: none;
+        background: #f1f1f1;
+        padding: 10px;
+        margin: 10px 0;
+        border-left: 4px solid #007bff;
+        border-radius: 5px;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100%;
+        text-align: left;
+        border-radius: 4px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>1.1 Assignment and Arithmetic Operators</h1>
+
+      <p>
+        JavaScript provides various operators for performing arithmetic and
+        assignment operations.
+      </p>
+
+      <h2>1.1.1 Assignment Operators</h2>
+      <p>Assignment operators are used to assign values to variables.</p>
+
+      <table>
+        <tr>
+          <th>Operator</th>
+          <th>Example</th>
+          <th>Equivalent To</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>=</td>
+          <td>x = 10</td>
+          <td>-</td>
+          <td>Assigns 10 to x</td>
+        </tr>
+        <tr>
+          <td>+=</td>
+          <td>x += 5</td>
+          <td>x = x + 5</td>
+          <td>Adds and assigns</td>
+        </tr>
+        <tr>
+          <td>-=</td>
+          <td>x -= 3</td>
+          <td>x = x - 3</td>
+          <td>Subtracts and assigns</td>
+        </tr>
+        <tr>
+          <td>*=</td>
+          <td>x *= 2</td>
+          <td>x = x * 2</td>
+          <td>Multiplies and assigns</td>
+        </tr>
+        <tr>
+          <td>/=</td>
+          <td>x /= 4</td>
+          <td>x = x / 4</td>
+          <td>Divides and assigns</td>
+        </tr>
+        <tr>
+          <td>%=</td>
+          <td>x %= 3</td>
+          <td>x = x % 3</td>
+          <td>Finds remainder and assigns</td>
+        </tr>
+      </table>
+
+      <h2>1.1.2 Arithmetic Operators</h2>
+      <p>Arithmetic operators are used for mathematical calculations.</p>
+
+      <table>
+        <tr>
+          <th>Operator</th>
+          <th>Example</th>
+          <th>Result</th>
+        </tr>
+        <tr>
+          <td>+</td>
+          <td>5 + 3</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>-</td>
+          <td>10 - 4</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>*</td>
+          <td>6 * 3</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>/</td>
+          <td>12 / 4</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>%</td>
+          <td>10 % 3</td>
+          <td>1 (Remainder)</td>
+        </tr>
+      </table>
+
+      <h2>1.1.3 Increment and Decrement Operators</h2>
+      <ul>
+        <li><strong>++ (Increment)</strong> increases the value by 1.</li>
+        <li><strong>-- (Decrement)</strong> decreases the value by 1.</li>
+      </ul>
+
+      <pre>
+let x = 5;
+console.log(x++); // Outputs 5 (Post-increment: returns the value before incrementing)
+console.log(x);   // Outputs 6
+
+let y = 5;
+console.log(++y); // Outputs 6 (Pre-increment: increments first, then returns value)
+    </pre
+      >
+
+      <h2>Practice Questions</h2>
+      <ol>
+        <li>
+          <button onclick="toggleAnswer('q1')">
+            Write a JavaScript function that takes two numbers as input and
+            returns their sum, difference, product, and remainder.
+          </button>
+          <div id="q1" class="answer">
+            <h4>Answer:</h4>
+            <pre>
+function arithmeticOperations(a, b) {
+    return {
+        sum: a + b,
+        difference: a - b,
+        product: a * b,
+        remainder: a % b
+    };
+}
+
+console.log(arithmeticOperations(10, 3));
+// Output: { sum: 13, difference: 7, product: 30, remainder: 1 }
+      </pre
+            >
+          </div>
+        </li>
+
+        <li>
+          <button onclick="toggleAnswer('q2')">
+             Predict the output of the following code:
+          </button>
+          <pre>
+let a = 10;
+let b = 3;
+a += b;
+console.log(a);
+a %= b;
+console.log(a);
+    </pre
+          >
+          <div id="q2" class="answer">
+            <h4>Answer:</h4>
+            <pre>
+// Output:
+13
+1 (13 % 3 = 1)
+      </pre
+            >
+          </div>
+        </li>
+
+        <li>
+          <button onclick="toggleAnswer('q3')">
+             Write a program to calculate the square and cube of a number
+            using *= operator
+          </button>
+          <div id="q3" class="answer">
+            <h4>Answer:</h4>
+            <pre>
+function calculatePower(num) {
+    let square = num;
+    square *= num;
+
+    let cube = square;
+    cube *= num;
+
+    console.log(`Square: ${square}, Cube: ${cube}`);
+}
+
+calculatePower(4);
+// Output: Square: 16, Cube: 64
+      </pre
+            >
+          </div>
+        </li>
+      </ol>
+
+      <a class="back-link" href="topic1.html">← Back to Subtopics</a>
+    </div>
+    <script>
+      function toggleAnswer(id) {
+        const answer = document.getElementById(id);
+        answer.style.display =
+          answer.style.display === "block" ? "none" : "block";
+      }
+    </script>
+    <!-- <script>
+    function toggleAnswer(id) {
+      const el = document.getElementById(id);
+      if (el.style.display === 'none') {
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    }
+  </script> -->
+  </body>
+</html>

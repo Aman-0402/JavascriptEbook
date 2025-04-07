@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>1.1 Assignment and Arithmetic Operators</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+        text-align: left;
+      }
+      h1,
+      h2 {
+        color: #333;
+        margin-left: 0;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #e8e8e8;
+      }
+      pre {
+        background-color: #f2f2f2;
+        padding: 10px;
+        border-radius: 8px;
+        overflow-x: auto;
+        text-align: left;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      ol {
+        padding-left: 20px;
+      }
+      .back-link {
+        display: block;
+        margin-top: 30px;
+        text-align: left;
+      }
+      .answer {
+        display: none;
+        background: #f1f1f1;
+        padding: 10px;
+        margin: 10px 0;
+        border-left: 4px solid #007bff;
+        border-radius: 5px;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100%;
+        text-align: left;
+        border-radius: 4px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>1.4.1 try...catch</h3>
+      <pre><code>try {
+    let result = 10 / 0;
+    console.log(result);
+} catch (error) {
+    console.log("An error occurred:", error.message);
+}
+
+try {
+    let result = 10 / 0;
+    if (!isFinite(result)) {
+        throw new Error("Division by zero resulted in Infinity!");
+    }
+    console.log(result);
+} catch (error) {
+    console.log("An error occurred:", error.message);
+}
+</code></pre>
+
+      <h3>1.4.2 finally</h3>
+      <pre><code>try {
+    let x = y; // y is not defined
+} catch (error) {
+    console.log("Error:", error.message);
+} finally {
+    console.log("Execution complete.");
+}</code></pre>
+
+      <h3>Practice Questions</h3>
+      <div class="qa">
+        <button onclick="toggleAnswer('a1')">
+          <p>1. Write a program that catches a division by zero error.</p>
+        </button>
+        <div class="answer" id="a1">
+          <pre><code>try {
+    let num = 10;
+    let result = num / 0;
+    if (!isFinite(result)) throw new Error("Division by zero is not allowed.");
+    console.log(result);
+} catch (error) {
+    console.log("Error:", error.message);
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="qa">
+        <p>2. Debug this code:</p>
+        <pre><code>try {
+    console.log(num);
+} finally {
+    console.log("This will always run.");
+}</code></pre>
+        <button onclick="toggleAnswer('a2')">Show Answer</button>
+        <div class="answer" id="a2">
+          <pre><code>// Error: num is not defined
+// Output:
+// This will always run.
+</code></pre>
+        </div>
+      </div>
+
+      <div class="qa">
+        <button onclick="toggleAnswer('a3')">
+          <p>3. Modify a script to throw an error if input is not a number</p>
+        </button>
+        <div class="answer" id="a3">
+          <pre><code>function checkNumber(input) {
+    if (isNaN(input)) {
+        throw new Error("Invalid input: Not a number.");
+    }
+    console.log("Valid number:", input);
+}
+try {
+    checkNumber("hello");
+} catch (error) {
+    console.log("Error:", error.message);
+}</code></pre>
+        </div>
+      </div>
+
+      <a class="back-link" href="topic1.html">← Back to Subtopics</a>
+    </div>
+    <script>
+      function toggleAnswer(id) {
+        const answer = document.getElementById(id);
+        answer.style.display =
+          answer.style.display === "block" ? "none" : "block";
+      }
+    </script>
+    <!-- <script>
+    function toggleAnswer(id) {
+      const el = document.getElementById(id);
+      if (el.style.display === 'none') {
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    }
+  </script> -->
+  </body>
+</html>

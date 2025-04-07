@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1.5 Browser Object Model (BOM)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+      text-align: left;
+    }
+    h1,
+    h2 {
+      color: #333;
+      margin-left: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #e8e8e8;
+    }
+    pre {
+      background-color: #f2f2f2;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+      text-align: left;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .answer {
+      display: none;
+      background: #f1f1f1;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 4px solid #007bff;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+      text-align: left;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const answer = document.getElementById(id);
+      answer.style.display = answer.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>1.5 Complete and Debug Code That Interacts with the BOM</h1>
+    <p>The Browser Object Model (BOM) allows interaction with the browser.</p>
+
+    <h2>1.5.1 Displaying Dialogs</h2>
+    <ul>
+      <li><strong>Alert:</strong> <code>alert("Hello!")</code></li>
+      <li><strong>Confirm:</strong>
+        <pre>
+let confirmAction = confirm("Are you sure?");
+console.log(confirmAction);
+        </pre>
+      </li>
+      <li><strong>Prompt:</strong>
+        <pre>
+let name = prompt("Enter your name:");
+alert("Welcome, " + name);
+        </pre>
+      </li>
+    </ul>
+
+    <h2>1.5.2 Determining Screen Size</h2>
+    <pre>
+console.log("Screen Width:", window.screen.width);
+console.log("Screen Height:", window.screen.height);
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('bq1')">
+          Write a script that asks the user for their age using prompt and alerts if they are above 18.
+        </button>
+        <div id="bq1" class="answer">
+          <h4>Answer:</h4>
+          <pre>
+let age = prompt("Enter your age:");
+if (age >= 18) {
+    alert("You are an adult.");
+} else {
+    alert("You are underage.");
+}
+          </pre>
+        </div>
+      </li>
+
+      <li>
+        <button onclick="toggleAnswer('bq2')">
+          Display the screen width and height using BOM methods.
+        </button>
+        <div id="bq2" class="answer">
+          <h4>Answer:</h4>
+          <pre>
+console.log("Screen Width:", window.screen.width);
+console.log("Screen Height:", window.screen.height);
+          </pre>
+        </div>
+      </li>
+
+      <li>
+        <button onclick="toggleAnswer('bq3')">
+          Modify a script to ask users for confirmation before closing a page.
+        </button>
+        <div id="bq3" class="answer">
+          <h4>Answer:</h4>
+          <pre>
+window.onbeforeunload = function () {
+    return "Are you sure you want to leave?";
+};
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a class="back-link" href="topic1.html">← Back to Subtopics</a>
+  </div>
+</body>
+</html>

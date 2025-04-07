@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>String Operations & Nesting Quotes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: left;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2, p, ol, li, pre {
+      text-align: left;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .answer {
+      display: none;
+      background-color: #f1f1f1;
+      border-left: 4px solid #007bff;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .warning {
+      color: #d9534f;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>String Operations & Nesting Quotes</h1>
+
+    <h2>Key Concepts</h2>
+    <ul>
+      <li>Using single (<code>'</code>) vs. double (<code>"</code>) quotes</li>
+      <li>String concatenation using <code>+</code></li>
+      <li>Template literals using backticks <code>`</code></li>
+      <li>Escape characters like <code>\'</code> and <code>\"</code></li>
+      <li><code>eval()</code> (⚠️ avoid using in real projects)</li>
+    </ul>
+
+    <h2>Example Code</h2>
+    <pre>
+let singleQuote = 'It\'s a beautiful day!';
+let doubleQuote = "She said, \"Hello!\"";
+let templateLiteral = `Hello, ${singleQuote}`;
+
+console.log(singleQuote);       // It's a beautiful day!
+console.log(doubleQuote);       // She said, "Hello!"
+console.log(templateLiteral);   // Hello, It's a beautiful day!
+
+console.log(eval("2 + 2"));     // 4
+    </pre>
+    <p class="warning">⚠️ <strong>Warning:</strong> <code>eval()</code> executes code from a string. Avoid it due to security risks.</p>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">What will be the output of the following?</button>
+        <div class="answer" id="q1">
+          <pre>
+let text = "He said, \"JavaScript is awesome!\"";
+console.log(text.length);  // 29
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">Write a function that takes a first name and a last name and returns a formatted full name using template literals.</button>
+        <div class="answer" id="q2">
+          <pre>
+function getFullName(firstName, lastName) {
+    return `${firstName} ${lastName}`;
+}
+console.log(getFullName("Aman", "Raj")); // "Aman Raj"
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">What does eval("2 + 2 * 2") return?</button>
+        <div class="answer" id="q3">
+          <pre>
+console.log(eval("2 + 2 * 2")); // 6
+// Explanation: Evaluates as 2 + (2 * 2)
+          </pre>
+        </div>
+      </li>
+    </ol>
+
+    <a href="topic2.html" class="back-link">← Back to Topic 2</a>
+  </div>
+</body>
+</html>
