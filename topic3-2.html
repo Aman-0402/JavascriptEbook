@@ -1,215 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>3.2 Decision Statements</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <title>3.3 Loops in JavaScript</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-    .container {
-      background-color: #fff;
-      max-width: 900px;
-      margin: auto;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
 
-    h1 {
-      color: #2c3e50;
-      text-align: center;
-      margin-bottom: 30px;
-    }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    h2 {
-      color: #34495e;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
-    }
+        h2 {
+            margin-top: 30px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
 
-    h3 {
-      color: #2980b9;
-    }
+        h3 {
+            margin-top: 25px;
+        }
 
-    ol {
-      padding-left: 20px;
-    }
+        p {
+            margin-top: 10px;
+        }
 
-    li {
-      margin-bottom: 20px;
-    }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 16px;
+        }
 
-    pre {
-      background-color: #272822;
-      color: #f8f8f2;
-      padding: 15px;
-      border-radius: 5px;
-      overflow-x: auto;
-      font-size: 14px;
-    }
+        .output {
+            background-color: #ecf0f1;
+            padding: 10px 15px;
+            border-left: 5px solid #3498db;
+            margin: 15px 0;
+            font-family: monospace;
+        }
 
-    code {
-      font-family: 'Courier New', Courier, monospace;
-    }
+        .question {
+            background-color: #ffffff;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-    strong {
-      color: #c0392b;
-    }
+        .question h3 {
+            margin-top: 0;
+        }
 
-    a {
-      color: #2980b9;
-      text-decoration: none;
-      font-weight: bold;
-      border: 1px solid #2980b9;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: background 0.3s;
-    }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
 
-    a:hover {
-      background-color: #2980b9;
-      color: #fff;
-    }
-
-    ul {
-      margin-top: 5px;
-      margin-bottom: 15px;
-    }
-  </style>
+        hr {
+            margin: 40px 0;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
-  <h1>3.2 Decision Statements</h1>
-  <div class="container">
-    <h2>Explanation</h2>
-    <ol>
-      <li><strong>Single Alternative (if)</strong><br>
-        Executes a block if the condition is true.<br>
-        <pre><code>let num = 10;
-if (num > 5) {
-    console.log("Number is greater than 5");
-}</code></pre>
-      </li>
+    <h1>3.3 Loops in JavaScript</h1>
+    <p>Loops help us repeat actions multiple times.</p>
 
-      <li><strong>Dual Alternative (if-else)</strong><br>
-        Executes one block if true, another if false.<br>
-        <pre><code>let marks = 75;
-if (marks >= 50) {
-    console.log("Pass");
-} else {
-    console.log("Fail");
-}</code></pre>
-      </li>
+    <h2>1. for Loop</h2>
+    <p>Runs a block a fixed number of times.</p>
+    <pre>for (let i = 1; i <= 5; i++) {
+    console.log("Iteration " + i);
+}</pre>
+    <div class="output">
+        Iteration 1<br>
+        Iteration 2<br>
+        Iteration 3<br>
+        Iteration 4<br>
+        Iteration 5
+    </div>
 
-      <li><strong>Multiple Alternatives (switch)</strong><br>
-        Used when multiple cases exist.<br>
-        <pre><code>let day = "Monday";
-switch (day) {
-    case "Monday":
-        console.log("Start of the week!");
-        break;
-    case "Friday":
-        console.log("Weekend is near!");
-        break;
-    default:
-        console.log("Just another day.");
-}</code></pre>
-      </li>
+    <h2>2. for...in Loop</h2>
+    <p>Used for objects to loop through keys.</p>
+    <pre>let person = { name: "Aman", age: 25, city: "Delhi" };
+for (let key in person) {
+    console.log(key + ": " + person[key]);
+}</pre>
+    <div class="output">
+        name: Aman<br>
+        age: 25<br>
+        city: Delhi
+    </div>
 
-      <li><strong>Nested if</strong><br>
-        if inside another if to check multiple conditions.<br>
-        <pre><code>let score = 85;
-if (score >= 50) {
-    if (score >= 80) {
-        console.log("Excellent!");
-    } else {
-        console.log("Good job!");
-    }
-} else {
-    console.log("Try again!");
-}</code></pre>
-      </li>
-    </ol>
+    <h2>3. while Loop</h2>
+    <p>Runs while a condition is true.</p>
+    <pre>let count = 1;
+while (count <= 5) {
+    console.log(count);
+    count++;
+}</pre>
+    <div class="output">
+        1<br>
+        2<br>
+        3<br>
+        4<br>
+        5
+    </div>
+
+    <h2>4. do...while Loop</h2>
+    <p>Runs at least once, then repeats while condition is true.</p>
+    <pre>let num = 1;
+do {
+    console.log("Value: " + num);
+    num++;
+} while (num <= 3);</pre>
+    <div class="output">
+        Value: 1<br>
+        Value: 2<br>
+        Value: 3
+    </div>
+
+    <h2>5. break and continue</h2>
+    <p><strong>break</strong> stops the loop early. <strong>continue</strong> skips the current iteration.</p>
+    
+    <pre>for (let i = 1; i <= 5; i++) {
+    if (i == 3) break;
+    console.log(i);
+}</pre>
+    <div class="output">
+        1<br>
+        2
+    </div>
+
+    <pre>for (let i = 1; i <= 5; i++) {
+    if (i == 3) continue;
+    console.log(i);
+}</pre>
+    <div class="output">
+        1<br>
+        2<br>
+        4<br>
+        5
+    </div>
 
     <h2>Practice Questions</h2>
-    <ol>
-      <li>
-        Write a program that takes a temperature as input and:
-        <ul>
-          <li>Prints "Hot" if temp is above 30°C</li>
-          <li>Prints "Warm" if temp is between 20-30°C</li>
-          <li>Prints "Cold" otherwise</li>
-        </ul>
-      </li>
-      <li>
-        What will be the output?
-        <pre><code>let a = 5;
-let b = 10;
-if (a > b) console.log("A is greater");
-else if (a == b) console.log("Both are equal");
-else console.log("B is greater");</code></pre>
-      </li>
-      <li>
-        Write a switch-case program that takes an input month (1-12) and prints the season:
-        <ul>
-          <li>Summer: March - June</li>
-          <li>Monsoon: July - September</li>
-          <li>Winter: October - February</li>
-        </ul>
-      </li>
-    </ol>
 
-    <h2>Answers</h2>
-    <ol>
-      <li>
-        <strong>Temperature Checker</strong>
-        <pre><code>let temp = 25;
-if (temp > 30) {
-    console.log("Hot");
-} else if (temp >= 20 && temp <= 30) {
-    console.log("Warm");
-} else {
-    console.log("Cold");
-}</code></pre>
-        Output (if temp = 25): <strong>Warm</strong>
-      </li>
+    <div class="question">
+        <h3>Q1: Print numbers from 10 to 1</h3>
+        <pre>for (let i = 10; i >= 1; i--) {
+    console.log(i);
+}</pre>
+        <div class="output">
+            10<br>
+            9<br>
+            8<br>
+            7<br>
+            6<br>
+            5<br>
+            4<br>
+            3<br>
+            2<br>
+            1
+        </div>
+    </div>
 
-      <li>
-        <strong>Predict the Output</strong>
-        <pre><code>let a = 5;
-let b = 10;
-if (a > b) console.log("A is greater");
-else if (a == b) console.log("Both are equal");
-else console.log("B is greater");</code></pre>
-        Output: <strong>B is greater</strong>
-      </li>
+    <div class="question">
+        <h3>Q2: Predict the output</h3>
+        <pre>let i = 1;
+while (i < 5) {
+    console.log(i);
+    i++;
+}</pre>
+        <div class="output">
+            1<br>
+            2<br>
+            3<br>
+            4
+        </div>
+    </div>
 
-      <li>
-        <strong>Switch-Case for Seasons</strong>
-        <pre><code>let month = 5; // May
-switch (true) {
-    case (month >= 3 && month <= 6):
-        console.log("Summer");
-        break;
-    case (month >= 7 && month <= 9):
-        console.log("Monsoon");
-        break;
-    case (month >= 10 || month <= 2):
-        console.log("Winter");
-        break;
-    default:
-        console.log("Invalid month");
-}</code></pre>
-        Output (if month = 5): <strong>Summer</strong>
-      </li>
-    </ol>
-
-    <a href="topic3.html">← Back to Topic 3</a>
-  </div>
+    <div class="question">
+        <h3>Q3: Print even numbers from 1 to 20 (using continue)</h3>
+        <pre>for (let i = 1; i <= 20; i++) {
+    if (i % 2 !== 0) continue;
+    console.log(i);
+}</pre>
+        <div class="output">
+            2<br>
+            4<br>
+            6<br>
+            8<br>
+            10<br>
+            12<br>
+            14<br>
+            16<br>
+            18<br>
+            20
+        </div>
+    </div>
 </body>
 </html>
