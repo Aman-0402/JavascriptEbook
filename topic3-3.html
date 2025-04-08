@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3.3 Loops</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>3.3 Loops</h1>
+  <div class="container">
+    <h2>Explanation</h2>
+    <p>Loops help us repeat actions multiple times.</p>
+
+    <ol>
+      <li>
+        <strong>for Loop</strong><br>
+        Runs a block a fixed number of times.
+        <pre><code>for (let i = 1; i <= 5; i++) {
+    console.log("Iteration " + i);
+}</code></pre>
+      </li>
+
+      <li>
+        <strong>for...in Loop</strong><br>
+        Used for objects to loop through keys.
+        <pre><code>let person = { name: "Aman", age: 25, city: "Delhi" };
+for (let key in person) {
+    console.log(key + ": " + person[key]);
+}</code></pre>
+      </li>
+
+      <li>
+        <strong>while Loop</strong><br>
+        Runs while a condition is true.
+        <pre><code>let count = 1;
+while (count <= 5) {
+    console.log(count);
+    count++;
+}</code></pre>
+      </li>
+
+      <li>
+        <strong>do...while Loop</strong><br>
+        Runs at least once, then repeats while true.
+        <pre><code>let num = 1;
+do {
+    console.log("Value: " + num);
+    num++;
+} while (num <= 3);</code></pre>
+      </li>
+
+      <li>
+        <strong>break and continue</strong><br>
+        <ul>
+          <li><code>break</code> → Stops the loop early.</li>
+          <li><code>continue</code> → Skips the current iteration.</li>
+        </ul>
+        <pre><code>for (let i = 1; i <= 5; i++) {
+    if (i == 3) break;  // Stops at 3
+    console.log(i);
+}
+
+for (let i = 1; i <= 5; i++) {
+    if (i == 3) continue;  // Skips 3
+    console.log(i);
+}</code></pre>
+      </li>
+    </ol>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>Write a for loop that prints numbers from 10 to 1.</li>
+      <li>What will be the output?
+        <pre><code>let i = 1;
+while (i < 5) {
+    console.log(i);
+    i++;
+}</code></pre>
+      </li>
+      <li>
+        Write a program that:
+        <ul>
+          <li>Uses a for loop to print only even numbers from 1 to 20.</li>
+          <li>Uses <code>continue</code> to skip odd numbers.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>Answers</h2>
+    <ol>
+      <li>
+        <strong>Print numbers from 10 to 1 using a for loop</strong>
+        <pre><code>for (let i = 10; i >= 1; i--) {
+    console.log(i);
+}</code></pre>
+        Output:
+        <pre>10
+9
+8
+7
+6
+5
+4
+3
+2
+1</pre>
+      </li>
+
+      <li>
+        <strong>Predict the Output</strong>
+        <pre><code>let i = 1;
+while (i < 5) {
+    console.log(i);
+    i++;
+}</code></pre>
+        Output:
+        <pre>1
+2
+3
+4</pre>
+      </li>
+
+      <li>
+        <strong>Print even numbers from 1 to 20 (using continue)</strong>
+        <pre><code>for (let i = 1; i <= 20; i++) {
+    if (i % 2 !== 0) continue;
+    console.log(i);
+}</code></pre>
+        Output:
+        <pre>2
+4
+6
+8
+10
+12
+14
+16
+18
+20</pre>
+      </li>
+    </ol>
+
+    <a href="topic3.html" style="display: inline-block; margin-top: 30px;">← Back to Topic 3</a>
+  </div>
+</body>
+</html>
