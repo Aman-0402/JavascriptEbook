@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>4.2 Events in JavaScript</title>
+    <style>
+      /* General styling */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f9;
+  padding: 20px;
+  color: #333;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Styling for note boxes */
+.note-box {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-left: 5px solid #3498db;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.note-box p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Preformatted text block (code examples) */
+pre {
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  overflow-x: auto;
+  word-wrap: break-word;
+}
+
+/* Styling for inline code */
+code {
+  background-color: #f9f9f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 15px;
+  color: #d14;
+}
+
+/* Blockquote styling for better emphasis */
+blockquote {
+  background-color: #e0f7fa;
+  padding: 15px;
+  border-left: 5px solid #00bcd4;
+  margin: 20px 0;
+  font-size: 16px;
+  color: #333;
+  font-style: italic;
+}
+
+/* Styling for collapsible sections */
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+  color: #3498db;
+  margin-top: 10px;
+  padding: 8px;
+  transition: color 0.3s ease;
+}
+
+details summary:hover {
+  color: #2980b9;
+}
+
+/* Styling for details content */
+details div {
+  padding: 10px 0;
+  background-color: #fafafa;
+  border-left: 4px solid #3498db;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Styling for links to go back */
+.back-link {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  color: #3498db;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .note-box {
+    padding: 15px;
+  }
+
+  pre {
+    padding: 10px;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <h1>📌 4.2 Identify and Handle Events</h1>
+
+    <div class="note-box">
+      <h2>🔹 What Are Events in JavaScript?</h2>
+      <p>
+        Events are actions that happen in the browser — like a user clicking a
+        button, pressing a key, or changing an input field. JavaScript lets you
+        listen for these events and respond using event handlers like
+        <code>onclick</code>, <code>onkeyup</code>, <code>onload</code>, etc.
+      </p>
+    </div>
+
+    <div class="note-box">
+      <h2>✅ Common Events with Code Examples</h2>
+
+      <details open>
+        <summary>🖼️ 1. <code>onload</code> – When the Page Loads</summary>
+        <pre><code>&lt;body onload="pageLoaded()"&gt;
+
+&lt;script&gt;
+  function pageLoaded() {
+    alert("Page has fully loaded!");
+  }
+&lt;/script&gt;</code></pre>
+
+        <h3>🔍 How it Works:</h3>
+        <ul>
+          <li>
+            The <code>&lt;body&gt;</code> tag includes the
+            <code>onload</code> attribute:
+            <code>&lt;body onload="pageLoaded()"&gt;</code>
+          </li>
+          <li>
+            This event fires when the page and all its assets have fully loaded.
+          </li>
+          <li>
+            It calls the <code>pageLoaded()</code> function, which shows an
+            alert.
+          </li>
+        </ul>
+
+        <h3>🖨️ Expected Output:</h3>
+        <p>
+          When the user opens or refreshes the page, an alert pops up saying:
+        </p>
+        <blockquote>Page has fully loaded!</blockquote>
+
+        <h3>🔥 Alternative: Using <code>window.onload</code> (Recommended)</h3>
+        <pre><code>window.onload = function() {
+  alert("Page has fully loaded!");
+};</code></pre>
+        <p>
+          This method separates HTML and JavaScript — a cleaner and more modern
+          practice.
+        </p>
+      </details>
+    </div>
+
+    <details open>
+      <summary>🖱️ 2. <code>onclick</code> – When an Element is Clicked</summary>
+      <pre><code>&lt;button onclick="sayHello()"&gt;Click Me&lt;/button&gt;
+  
+  &lt;script&gt;
+    function sayHello() {
+      alert("Button was clicked!");
+    }
+  &lt;/script&gt;</code></pre>
+
+      <h3>🔍 How it Works:</h3>
+      <ul>
+        <li>
+          <strong>Button Element:</strong>
+          <code
+            >&lt;button onclick="sayHello()"&gt;Click Me&lt;/button&gt;</code
+          >
+          <ul>
+            <li>This creates a button labeled <strong>"Click Me"</strong>.</li>
+            <li>
+              The <code>onclick</code> attribute triggers
+              <code>sayHello()</code> when clicked.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>JavaScript Function:</strong>
+          <pre><code>function sayHello() {
+    alert("Button was clicked!");
+  }</code></pre>
+          <ul>
+            <li>
+              When executed, it displays an alert box with the message:
+              <strong>"Button was clicked!"</strong>.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>🖨️ Expected Output:</h3>
+      <blockquote>
+        When you click the button, an alert box pops up with the text:
+        <br /><strong>Button was clicked!</strong>
+      </blockquote>
+
+      <h3>
+        🔥 Alternative: Using <code>addEventListener()</code> (Recommended)
+      </h3>
+      <pre><code>&lt;button id="myButton"&gt;Click Me&lt;/button&gt;
+  
+  &lt;script&gt;
+    document.getElementById("myButton").addEventListener("click", function() {
+      alert("Button was clicked!");
+    });
+  &lt;/script&gt;</code></pre>
+
+      <p>
+        ✅ This method keeps HTML and JavaScript separate for better code
+        structure and readability.
+      </p>
+    </details>
+    <details open>
+      <summary>
+        🔑 3. <code>onkeydown</code>, <code>onkeyup</code>,
+        <code>onkeypress</code> – Keyboard Events
+      </summary>
+      <pre><code>&lt;input type="text" onkeydown="keyDown()" onkeyup="keyUp()" onkeypress="keyPress()"&gt;
+  
+  &lt;script&gt;
+    function keyDown() {
+      console.log("Key is being pressed down");
+    }
+    function keyUp() {
+      console.log("Key was released");
+    }
+    function keyPress() {
+      console.log("Key was pressed");
+    }
+  &lt;/script&gt;</code></pre>
+
+      <h3>🔍 How it Works:</h3>
+      <ul>
+        <li>
+          <strong>Input Field:</strong>
+          <code
+            >&lt;input type="text" onkeydown="keyDown()" onkeyup="keyUp()"
+            onkeypress="keyPress()"&gt;</code
+          >
+          <ul>
+            <li>Listens for keyboard events while typing.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Keyboard Event Functions:</strong>
+          <ul>
+            <li>
+              <code>onkeydown="keyDown()"</code> – Triggers when a key is
+              pressed down.
+            </li>
+            <li>
+              <code>onkeyup="keyUp()"</code> – Triggers when a key is released.
+            </li>
+            <li>
+              <code>onkeypress="keyPress()"</code> – Triggers when a key is
+              pressed (deprecated in modern browsers).
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>🖨️ Expected Output in Console:</h3>
+      <blockquote>
+        If you type "A" inside the input box, you will see:<br />
+        Key is being pressed down<br />
+        Key was pressed<br />
+        Key was released
+      </blockquote>
+
+      <h3>🔥 Better Approach: Using <code>addEventListener()</code></h3>
+      <pre><code>&lt;input type="text" id="textInput"&gt;
+  
+  &lt;script&gt;
+    let inputField = document.getElementById("textInput");
+    inputField.addEventListener("keydown", function() {
+      console.log("Key is being pressed down");
+    });
+    inputField.addEventListener("keyup", function() {
+      console.log("Key was released");
+    });
+    inputField.addEventListener("keypress", function() {
+      console.log("Key was pressed");
+    });
+  &lt;/script&gt;</code></pre>
+
+      <p>
+        ✅ This approach keeps HTML and JavaScript separate, improving
+        maintainability and readability.
+      </p>
+    </details>
+
+    <details open>
+      <summary>
+        📝 4. <code>onchange</code> – Input or Select Value Changed
+      </summary>
+
+      <pre><code>&lt;select onchange="optionChanged(this)"&gt;
+        &lt;option value="Banana"&gt;Apple&lt;/option&gt;
+        &lt;option value="Grapes"&gt;Banana&lt;/option&gt;
+        &lt;option value="Watermelon"&gt;Grapes&lt;/option&gt;
+        &lt;option value="Apple"&gt;Watermelon&lt;/option&gt;
+      &lt;/select&gt;
+      
+      &lt;script&gt;
+        function optionChanged(selectElement) {
+          alert("You selected: " + selectElement.value);
+        }
+      &lt;/script&gt;
+      </code></pre>
+
+      <h3>🔍 Explanation:</h3>
+      <ul>
+        <li>
+          <code>&lt;select onchange="optionChanged(this)"&gt;</code>
+          <ul>
+            <li>
+              This dropdown has 4 options: Apple, Banana, Grapes, Watermelon.
+            </li>
+            <li>
+              The <code>onchange</code> event fires when the user changes the
+              selection.
+            </li>
+            <li>
+              <code>this</code> refers to the entire
+              <code>&lt;select&gt;</code> element.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <code>optionChanged(selectElement)</code>
+          <ul>
+            <li>This function is called when the selection changes.</li>
+            <li>
+              <code>selectElement.value</code> gives the selected option's
+              value.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>🖨️ Example Output:</h3>
+      <blockquote>
+        If the user selects Banana, this alert appears:<br /><strong
+          >You selected: Banana</strong
+        >
+      </blockquote>
+
+      <h3>🔥 Better Version (Using JavaScript Only):</h3>
+      <pre><code>&lt;select id="fruitSelector"&gt;
+        &lt;option value="apple"&gt;Apple&lt;/option&gt;
+        &lt;option value="banana"&gt;Banana&lt;/option&gt;
+      &lt;/select&gt;
+      
+      &lt;script&gt;
+        document.getElementById("fruitSelector")
+          .addEventListener("change", function() {
+            alert("You selected: " + this.value);
+          });
+      &lt;/script&gt;
+      </code></pre>
+
+      <p>
+        ✅ Separates HTML and JavaScript, improving code cleanliness and
+        readability.
+      </p>
+    </details>
+
+    <details open>
+      <summary>
+        🧠 5. <code>onfocus</code> and <code>onblur</code> – Focus In and Out of
+        Input
+      </summary>
+
+      <pre><code>&lt;input type="text" onfocus="gotFocus()" onblur="lostFocus()" 
+        placeholder="Enter your name"&gt;
+      
+      &lt;script&gt;
+        function gotFocus() {
+          console.log("Input got focus");
+        }
+      
+        function lostFocus() {
+          console.log("Input lost focus");
+        }
+      &lt;/script&gt;
+      </code></pre>
+
+      <h3>🔍 How it Works:</h3>
+      <ul>
+        <li>
+          <strong>onfocus Event</strong>
+          <ul>
+            <li>Fires when the input gains focus (user clicks inside).</li>
+            <li>
+              Calls <code>gotFocus()</code> → Logs <code>Input got focus</code>.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>onblur Event</strong>
+          <ul>
+            <li>Fires when the input loses focus (user clicks away).</li>
+            <li>
+              Calls <code>lostFocus()</code> → Logs
+              <code>Input lost focus</code>.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>🖨️ Expected Console Output:</h3>
+      <ul>
+        <li>Click inside the input: <code>Input got focus</code></li>
+        <li>Click outside the input: <code>Input lost focus</code></li>
+      </ul>
+
+      <h3>🔥 Better Approach (Using <code>addEventListener</code>):</h3>
+      <pre><code>&lt;input type="text" id="nameInput" placeholder="Enter your name"&gt;
+      
+      &lt;script&gt;
+        let inputField = document.getElementById("nameInput");
+      
+        inputField.addEventListener("focus", function() {
+          console.log("Input got focus");
+        });
+      
+        inputField.addEventListener("blur", function() {
+          console.log("Input lost focus");
+        });
+      &lt;/script&gt;
+      </code></pre>
+
+      <h4>✅ Advantages:</h4>
+      <ul>
+        <li>Keeps HTML and JS separate and cleaner.</li>
+        <li>Allows multiple event listeners without conflict.</li>
+      </ul>
+
+      <h3>🚀 Highlight Input on Focus (Bonus):</h3>
+      <pre><code>inputField.addEventListener("focus", function() {
+        inputField.style.backgroundColor = "lightyellow";
+      });
+      
+      inputField.addEventListener("blur", function() {
+        inputField.style.backgroundColor = "";
+      });
+      </code></pre>
+
+      <p>
+        🎨 Now, the background turns yellow when focused and resets when
+        blurred.
+      </p>
+    </details>
+    <details>
+      <summary>
+        🖱️ 6. <code>onmouseover</code> and <code>onmouseout</code> – Mouse Hover
+        and Exit
+      </summary>
+
+      <pre><code>&lt;p onmouseover="hoverText(this)" onmouseout="normalText(this)"&gt;Hover over me!&lt;/p&gt;
+      
+      &lt;script&gt;
+        function hoverText(element) {
+          element.style.color = "blue";
+          element.innerText = "You're hovering!";
+        }
+      
+        function normalText(element) {
+          element.style.color = "black";
+          element.innerText = "Hover over me!";
+        }
+      &lt;/script&gt;
+      </code></pre>
+
+      <h3>🔍 How it Works:</h3>
+      <ul>
+        <li>
+          <strong><code>onmouseover</code> Event</strong>
+          <ul>
+            <li>
+              Triggered when the mouse moves over the
+              <code>&lt;p&gt;</code> element.
+            </li>
+            <li>
+              Calls <code>hoverText(this)</code> → changes color to blue and
+              updates text.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong><code>onmouseout</code> Event</strong>
+          <ul>
+            <li>Triggered when the mouse leaves the element.</li>
+            <li>
+              Calls <code>normalText(this)</code> → resets color and text.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>🖨️ Expected Behavior:</h3>
+      <ul>
+        <li>📌 Before Hover: <code>Hover over me!</code> (Black color)</li>
+        <li>🔵 On Hover: <code>You're hovering!</code> (Blue color)</li>
+        <li>
+          📌 On Mouse Out: Resets back to <code>Hover over me!</code> (Black
+          color)
+        </li>
+      </ul>
+
+      <h3>🔥 Better Approach (Using <code>addEventListener</code>):</h3>
+      <pre><code>&lt;p id="hoverParagraph"&gt;Hover over me!&lt;/p&gt;
+      
+      &lt;script&gt;
+        let paragraph = document.getElementById("hoverParagraph");
+      
+        paragraph.addEventListener("mouseover", function() {
+          paragraph.style.color = "blue";
+          paragraph.innerText = "You're hovering!";
+        });
+      
+        paragraph.addEventListener("mouseout", function() {
+          paragraph.style.color = "black";
+          paragraph.innerText = "Hover over me!";
+        });
+      &lt;/script&gt;
+      </code></pre>
+
+      <h4>✅ Advantages:</h4>
+      <ul>
+        <li>Separates HTML and JavaScript for cleaner code.</li>
+        <li>Supports multiple listeners without conflict.</li>
+      </ul>
+
+      <h3>🎨 Bonus: Smooth Transition on Hover</h3>
+      <pre><code>p {
+        transition: color 0.3s ease-in-out;
+      }</code></pre>
+      <p>
+        ✨ The color change happens smoothly when hovering over the element.
+      </p>
+    </details>
+    <div class="container">
+        <h1>🧪 Practice Tasks for You</h1>
+    
+        <details>
+          <summary>1. Show an alert when the page loads:</summary>
+          <div>
+            <pre><code>&lt;body onload="alert('Page has loaded!')"&gt;</code></pre>
+          </div>
+        </details>
+    
+        <details>
+          <summary>2. Log a message when a user types in an input field:</summary>
+          <div>
+            <pre><code>&lt;input type="text" oninput="logInput()"&gt;
+    &lt;script&gt;
+      function logInput() {
+        console.log("User is typing...");
+      }
+    &lt;/script&gt;</code></pre>
+          </div>
+        </details>
+    
+        <details>
+          <summary>3. Change the color of a paragraph on mouseover:</summary>
+          <div>
+            <pre><code>&lt;p onmouseover="changeColor(this)"&gt;Hover over me to change color!&lt;/p&gt;
+    &lt;script&gt;
+      function changeColor(element) {
+        element.style.color = "red";
+      }
+    &lt;/script&gt;</code></pre>
+          </div>
+        </details>
+    
+        <details>
+          <summary>4. Display the selected value from a dropdown on change:</summary>
+          <div>
+            <pre><code>&lt;select onchange="displaySelectedValue(this)"&gt;
+      &lt;option value="Apple"&gt;Apple&lt;/option&gt;
+      &lt;option value="Banana"&gt;Banana&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;script&gt;
+      function displaySelectedValue(selectElement) {
+        alert("You selected: " + selectElement.value);
+      }
+    &lt;/script&gt;</code></pre>
+          </div>
+        </details>
+    
+        <details>
+          <summary>5. Show a message when the input loses focus:</summary>
+          <div>
+            <pre><code>&lt;input type="text" onblur="showMessage()"&gt;
+    &lt;script&gt;
+      function showMessage() {
+        alert("Input field lost focus!");
+      }
+    &lt;/script&gt;</code></pre>
+          </div>
+        </details>
+      </div>
+    <a href="topic4.html" class="back-link">← Back to Topic 4</a>
+  </body>
+</html>

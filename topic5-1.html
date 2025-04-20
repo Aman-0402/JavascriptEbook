@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>5.1 Retrieve Form Input and Set Field Values</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px 40px;
+        margin: 0;
+      }
+
+      h1 {
+        color: #2c3e50;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 10px;
+      }
+
+      h2,
+      h3 {
+        color: #2980b9;
+        margin-top: 30px;
+      }
+
+      .content {
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+        max-width: 900px;
+        margin: auto;
+      }
+
+      code {
+        background-color: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 4px;
+        color: #c0392b;
+        font-weight: bold;
+      }
+
+      pre {
+        background-color: #272822;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.95em;
+        margin-top: 10px;
+      }
+
+      ul,
+      ol {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      a {
+        display: inline-block;
+        text-decoration: none;
+        margin-top: 30px;
+        color: #ffffff;
+        background-color: #3498db;
+        padding: 10px 18px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+      }
+
+      a:hover {
+        background-color: #2980b9;
+      }
+
+      /* Interactive form example */
+      label,
+      input,
+      button {
+        display: block;
+        margin: 12px 0;
+        font-size: 16px;
+      }
+
+      input {
+        padding: 8px 12px;
+        width: 250px;
+        border: 2px solid #ccc;
+        border-radius: 6px;
+        transition: border-color 0.3s;
+      }
+
+      input:focus {
+        border-color: #3498db;
+        outline: none;
+      }
+
+      button {
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #27ae60;
+      }
+
+      #output {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      5.1 Complete and Debug Code That Retrieves Form Input and Sets Form Field
+      Values
+    </h1>
+
+    <div class="content">
+      <h2>✅ 1. Retrieving Form Input Values</h2>
+      <p>
+        To get the value entered in a form field, use the
+        <code>value</code> property.
+      </p>
+
+      <h3>🔹 Example: Get input value on button click</h3>
+
+      <!-- Interactive Form Example -->
+      <label for="name">Enter your name:</label>
+      <input type="text" id="name" placeholder="Type here" />
+      <button onclick="getInputValue()">Submit</button>
+      <p id="output"></p>
+
+      <script>
+        function getInputValue() {
+          let nameValue = document.getElementById("name").value.trim();
+          if (nameValue === "") {
+            alert("Please enter your name!");
+            return;
+          }
+          document.getElementById("output").textContent = "Hello, " + nameValue;
+        }
+      </script>
+
+      <pre>
+&lt;label for="name"&gt;Enter your name:&lt;/label&gt;
+&lt;input type="text" id="name" placeholder="Type here"&gt;
+&lt;button onclick="getInputValue()"&gt;Submit&lt;/button&gt;
+&lt;p id="output"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+  function getInputValue() {
+    let nameValue = document.getElementById("name").value.trim();
+    if (nameValue === "") {
+      alert("Please enter your name!");
+      return;
+    }
+    document.getElementById("output").textContent = "Hello, " + nameValue;
+  }
+&lt;/script&gt;
+    </pre
+      >
+
+      <h3>🔍 Explanation:</h3>
+      <ul>
+        <li>
+          <code>document.getElementById("name").value</code> → Retrieves the
+          user input.
+        </li>
+        <li>
+          <code>textContent</code> → Displays the input in a
+          <code>&lt;p&gt;</code> tag.
+        </li>
+      </ul>
+
+      <h3>✅ Explanation of the Code</h3>
+      <p>
+        This HTML and JavaScript code allows a user to enter their name in an
+        input field and displays a greeting message when they click the "Submit"
+        button.
+      </p>
+
+      <h3>🎯 Step-by-Step Breakdown:</h3>
+      <ol>
+        <li>
+          <strong>HTML Structure:</strong>
+          <ul>
+            <li>
+              <code>&lt;label&gt;</code> and <code>&lt;input&gt;</code> allow
+              user input.
+            </li>
+            <li><code>&lt;button&gt;</code> triggers the JS function.</li>
+            <li><code>&lt;p&gt;</code> displays the message.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>JavaScript Function (<code>getInputValue()</code>):</strong>
+          <ul>
+            <li>Retrieves input using <code>.value.trim()</code>.</li>
+            <li>Shows greeting inside the paragraph.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h2>🚀 Enhancements & Best Practices</h2>
+
+      <h3>
+        ✅ 1. Use <code>addEventListener</code> Instead of <code>onclick</code>
+      </h3>
+      <pre>
+document.querySelector("button").addEventListener("click", getInputValue);
+    </pre
+      >
+      <p>
+        <strong>✅ Why?</strong> Keeps JavaScript separate from HTML, making
+        code cleaner and reusable.
+      </p>
+
+      <h3>✅ 2. Prevent Empty Input Submission</h3>
+      <pre>
+function getInputValue() {
+  let nameValue = document.getElementById("name").value.trim();
+  if (nameValue === "") {
+    alert("Please enter your name!");
+    return;
+  }
+  document.getElementById("output").textContent = "Hello, " + nameValue;
+}
+    </pre
+      >
+      <p>
+        <strong>✅ Why?</strong> Avoids blank submissions and improves user
+        experience.
+      </p>
+      <!-- ✅ 2. Setting Form Field Values -->
+      <section style="margin-top: 40px">
+        <h2 style="color: #2c3e50">✅ 2. Setting Form Field Values</h2>
+        <p>To set a form field's value dynamically, use <code>value</code>.</p>
+
+        <p style="font-weight: bold; color: #2980b9">
+          🔹 Example: Set default value on button click
+        </p>
+
+        <div
+          style="
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 5px solid #3498db;
+            margin-top: 10px;
+          "
+        >
+          <label for="email" style="display: block; margin-bottom: 8px"
+            >Enter your email:</label
+          >
+          <input
+            type="email"
+            id="email"
+            placeholder="you@example.com"
+            style="
+              padding: 8px;
+              width: 250px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+            "
+          />
+          <button
+            onclick="setEmail()"
+            style="
+              padding: 8px 12px;
+              background-color: #3498db;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              margin-left: 10px;
+            "
+          >
+            Set Email
+          </button>
+        </div>
+
+        <script>
+          function setEmail() {
+            const emailField = document.getElementById("email");
+            emailField.value = emailField.value ? "" : "example@gmail.com"; // Toggle value
+            emailField.focus(); // Focus the field
+          }
+        </script>
+
+        <pre>
+    &lt;label for="email"&gt;Enter your email:&lt;/label&gt;
+    &lt;input type="email" id="email" placeholder="Type your email"&gt;
+    &lt;button onclick="setEmail()"&gt;Set Email&lt;/button&gt;
+    
+    &lt;script&gt;
+      function setEmail() {
+        document.getElementById("email").value = "example@gmail.com";
+      }
+    &lt;/script&gt;
+    </pre
+        >
+
+        <p style="font-weight: bold; color: #27ae60; margin-top: 20px">
+          🔍 Explanation:
+        </p>
+        <ul>
+          <li>
+            <code
+              >document.getElementById("email").value =
+              "example@gmail.com";</code
+            >
+            → Sets the input field with a default email.
+          </li>
+        </ul>
+
+        <p style="font-weight: bold; color: #9b59b6; margin-top: 20px">
+          ✅ Explanation of the Code:
+        </p>
+        <ul>
+          <li>
+            This HTML and JavaScript code allows a user to set a predefined
+            email in the input field when they click the button.
+          </li>
+        </ul>
+
+        <p style="font-weight: bold; color: #e67e22; margin-top: 20px">
+          🎯 Step-by-Step Breakdown:
+        </p>
+        <ol>
+          <li>
+            HTML Structure:
+            <ul>
+              <li>
+                A <code>&lt;label&gt;</code> and <code>&lt;input&gt;</code> for
+                email input.
+              </li>
+              <li>
+                A <code>&lt;button&gt;</code> that triggers
+                <code>setEmail()</code>.
+              </li>
+            </ul>
+          </li>
+          <li>
+            JavaScript Function (<code>setEmail()</code>):
+            <ul>
+              <li>
+                Uses <code>getElementById</code> to access the input field.
+              </li>
+              <li>Sets <code>value</code> to "example@gmail.com".</li>
+            </ul>
+          </li>
+        </ol>
+
+        <p style="font-weight: bold; color: #e74c3c; margin-top: 20px">
+          🚀 Enhancements & Best Practices
+        </p>
+        <ul>
+          <li>
+            <strong
+              >✅ Use <code>addEventListener</code> Instead of
+              <code>onclick</code></strong
+            ><br />
+            <code
+              >document.querySelector("button").addEventListener("click",
+              setEmail);</code
+            >
+            → Keeps JS separate from HTML.
+          </li>
+          <li>
+            <strong>✅ Toggle Value</strong><br />
+            <code
+              >emailField.value = emailField.value ? "" :
+              "example@gmail.com";</code
+            >
+            → Allows resetting.
+          </li>
+          <li>
+            <strong>✅ Auto-Focus</strong><br />
+            <code>emailField.focus();</code> → Brings focus to the field after
+            setting.
+          </li>
+        </ul>
+      </section>
+    </div>
+<!-- ✅ 3. Complete Form Handling: Get & Set Values -->
+<section style="margin-top: 40px;">
+    <h2 style="color: #2c3e50;">✅ 3. Complete Form Handling: Get & Set Values</h2>
+    <p>🔹 Example: Retrieve and Update Form Fields</p>
+  
+    <div style="background-color: #f9f9f9; padding: 20px; border-left: 5px solid #3498db; margin-top: 10px;">
+      <form>
+        <label for="username" style="display: block; margin-bottom: 8px;">Username:</label>
+        <input type="text" id="username" placeholder="Enter username" style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 5px;"><br><br>
+  
+        <label for="age" style="display: block; margin-bottom: 8px;">Age:</label>
+        <input type="number" id="age" style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 5px;"><br><br>
+  
+        <button type="button" style="padding: 8px 12px; background-color: #3498db; color: white; border: none; border-radius: 5px;" onclick="submitForm()">Submit</button>
+        <button type="button" style="padding: 8px 12px; background-color: #e74c3c; color: white; border: none; border-radius: 5px; margin-left: 10px;" onclick="resetForm()">Reset</button>
+      </form>
+      <p id="formOutput" style="margin-top: 20px;"></p>
+    </div>
+  
+    <script>
+      function submitForm() {
+        let username = document.getElementById("username").value;
+        let age = document.getElementById("age").value;
+        document.getElementById("formOutput").textContent = `Username: ${username}, Age: ${age}`;
+      }
+  
+      function resetForm() {
+        document.getElementById("username").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("formOutput").textContent = ""; // Clears the output message
+      }
+    </script>
+  
+    <p style="font-weight: bold; color: #27ae60; margin-top: 20px;">🔍 Explanation:</p>
+    <ul>
+      <li><code>submitForm()</code>: Gets values from the input fields and displays them.</li>
+      <li><code>resetForm()</code>: Clears the input fields.</li>
+    </ul>
+  
+    <p style="font-weight: bold; color: #9b59b6; margin-top: 20px;">✅ Explanation of the Code:</p>
+    <ul>
+      <li>This code provides a form where a user can enter their username and age. The form has submit and reset buttons with the following functions:</li>
+      <ul>
+        <li><code>submitForm()</code> - Displays the input values in the paragraph with id <code>formOutput</code>.</li>
+        <li><code>resetForm()</code> - Clears the input fields and the displayed output.</li>
+      </ul>
+    </ul>
+  
+    <p style="font-weight: bold; color: #e67e22; margin-top: 20px;">🎯 Step-by-Step Breakdown:</p>
+    <ol>
+      <li>HTML Form:
+        <ul>
+          <li>A <code>&lt;label&gt;</code> and <code>&lt;input&gt;</code> allow users to enter username and age.</li>
+          <li><code>Submit</code> button triggers <code>submitForm()</code> to display input values.</li>
+          <li><code>Reset</code> button triggers <code>resetForm()</code> to clear input fields.</li>
+        </ul>
+      </li>
+      <li>JavaScript Functions:
+        <ul>
+          <li><code>submitForm()</code>:
+            <ul>
+              <li>Retrieves values from <code>&lt;input&gt;</code> fields using <code>getElementById</code>.</li>
+              <li>Displays them inside the <code>&lt;p&gt;</code> element (<code>formOutput</code>).</li>
+            </ul>
+          </li>
+          <li><code>resetForm()</code>:
+            <ul>
+              <li>Clears the input fields by setting their <code>value</code> to an empty string ("").</li>
+              <li>Clears the displayed output message.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  
+    <p style="font-weight: bold; color: #e74c3c; margin-top: 20px;">🚀 Enhancements & Best Practices</p>
+    <ul>
+      <li><strong>✅ Use <code>addEventListener</code> Instead of <code>onclick</code></strong><br>
+        <code>document.querySelector("button:first-of-type").addEventListener("click", submitForm);</code><br>
+        <code>document.querySelector("button:last-of-type").addEventListener("click", resetForm);</code><br>
+        → Separates JavaScript from HTML, making the code cleaner.
+      </li>
+      <li><strong>✅ Prevent Submitting Empty Fields</strong><br>
+        <code>if (!username || !age) { alert("Please enter both username and age!"); return; }</code><br>
+        → Ensures valid input before displaying the message.
+      </li>
+      <li><strong>✅ Reset Displayed Output on Reset</strong><br>
+        <code>document.getElementById("formOutput").textContent = "";</code><br>
+        → Clears the output message when resetting the form.
+      </li>
+    </ul>
+  
+    <p style="font-weight: bold; color: #f39c12; margin-top: 20px;">🛠 Debugging Issues</p>
+    <table style="width: 100%; border: 1px solid #ddd; border-collapse: collapse; margin-top: 10px;">
+      <thead>
+        <tr style="background-color: #f1c40f; text-align: left;">
+          <th>Issue</th>
+          <th>Cause</th>
+          <th>Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>undefined output</td>
+          <td>getElementById not finding element</td>
+          <td>Check if id matches input field</td>
+        </tr>
+        <tr>
+          <td>Field doesn’t update</td>
+          <td>Missing <code>.value</code> when setting field</td>
+          <td>Use <code>inputField.value = "new value"</code></td>
+        </tr>
+        <tr>
+          <td>Nothing happens on click</td>
+          <td>Function not linked to button</td>
+          <td>Ensure <code>onclick="functionName()"</code> is present</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 🎯 Practice Challenges -->
+  <div style="margin-top: 30px; background-color: #ecf0f1; padding: 20px; border-left: 5px solid #1abc9c;">
+    <h3 style="color: #16a085;">🎯 Practice Challenges</h3>
+    <ol>
+      <li>Create a form with fields: Name, Email, Age. On submit, display all values in a <code>&lt;p&gt;</code>.</li>
+      <li>Add a "Reset" button to clear input fields.</li>
+      <li>Add a checkbox and retrieve whether it's checked or not.</li>
+    </ol>
+  </div>
+  </section>
+  
+    <a href="topic5.html">← Back to Topic 5</a>
+  </body>
+</html>

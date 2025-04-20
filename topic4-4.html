@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getElementById()</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
+      button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #2980b9;
+      }
+      pre {
+        background-color: #f0f0f0;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+      .output-box {
+        background: #e8f0fe;
+        padding: 10px;
+        border-left: 5px solid #3498db;
+        margin: 10px 0;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .practice {
+        background-color: #fffbea;
+        padding: 15px;
+        border-left: 5px solid #f39c12;
+        margin-top: 20px;
+      }
+      .back-link {
+        text-decoration: none;
+        color: #3498db;
+        display: inline-block;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔹 1. getElementById()</h1>
+
+      <p>
+        ✅ <strong>Use:</strong> Find a single HTML element by its
+        <code>id</code>.
+      </p>
+
+      <h2>✅ Example:</h2>
+      <pre>
+&lt;p id="demo"&gt;Hello&lt;/p&gt;
+&lt;button onclick="changeText()"&gt;Click Me&lt;/button&gt;
+
+&lt;script&gt;
+  function changeText() {
+    const element = document.getElementById("demo");
+    element.textContent = "Text changed using getElementById!";
+  }
+&lt;/script&gt;
+    </pre
+      >
+
+      <h2>🔍 What Happens Here?</h2>
+      <div class="output-box">
+        <strong>📌 Initial State:</strong>
+        <ul>
+          <li>
+            A paragraph (<code>&lt;p&gt;</code>) with
+            <code>id="demo"</code> displays: <strong>Hello</strong>
+          </li>
+        </ul>
+
+        <strong>🎯 When the Button is Clicked:</strong>
+        <ul>
+          <li>The function <code>changeText()</code> is triggered.</li>
+          <li>
+            <code>const element = document.getElementById("demo");</code> grabs
+            the &lt;p&gt; element.
+          </li>
+          <li>
+            <code
+              >element.textContent = "Text changed using getElementById!";</code
+            >
+            updates its text.
+          </li>
+        </ul>
+      </div>
+
+      <h2>🧠 What's <code>textContent</code>?</h2>
+      <ul>
+        <li>
+          <code>element.textContent</code> sets or gets the text inside an
+          element.
+        </li>
+        <li>
+          Unlike <code>innerHTML</code>, it treats the content as plain text
+          (not HTML).
+        </li>
+      </ul>
+
+      <h2>🖼️ Visual Flow</h2>
+      <table border="1" cellpadding="10">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Page Load</td>
+            <td>Hello</td>
+          </tr>
+          <tr>
+            <td>Button Click</td>
+            <td>Text changed using getElementById!</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>✅ Cleaner Version Using addEventListener (Optional)</h2>
+      <pre>
+&lt;p id="demo"&gt;Hello&lt;/p&gt;
+&lt;button id="btn"&gt;Click Me&lt;/button&gt;
+
+&lt;script&gt;
+  document.getElementById("btn").addEventListener("click", function () {
+    document.getElementById("demo").textContent = "Text changed using getElementById!";
+  });
+&lt;/script&gt;
+    </pre
+      >
+
+      <div class="practice">
+        <h2>✨ Practice Exercise:</h2>
+        <ul>
+          <li>
+            Modify the text of a second element using
+            <code>getElementById()</code>.
+          </li>
+          <li>
+            Change the style (like color or font size) of an element using
+            <code>getElementById()</code>.
+          </li>
+          <li>
+            Try replacing <code>textContent</code> with
+            <code>innerHTML</code> and include HTML tags in the output.
+          </li>
+          <li>
+            Log the element's current content to the console before changing it.
+          </li>
+        </ul>
+      </div>
+
+      <div class="container">
+        <h1>🔹 2. getElementsByTagName()</h1>
+
+        <p>
+          ✅ <strong>Use:</strong> Find all elements with a specific HTML tag
+          name. Returns a collection (like an array).
+        </p>
+
+        <h2>✅ Example:</h2>
+        <pre>
+      &lt;p&gt;First paragraph&lt;/p&gt;
+      &lt;p&gt;Second paragraph&lt;/p&gt;
+      &lt;button onclick="colorParagraphs()"&gt;Change Color&lt;/button&gt;
+      
+      &lt;script&gt;
+        function colorParagraphs() {
+          const paragraphs = document.getElementsByTagName("p");
+          for (let i = 0; i &lt; paragraphs.length; i++) {
+            paragraphs[i].style.color = "blue";
+          }
+        }
+      &lt;/script&gt;
+        </pre>
+
+        <h2>🔍 How It Works</h2>
+        <ul>
+          <li>✅ You have two <code>&lt;p&gt;</code> elements on the page.</li>
+          <li>
+            ✅ A <code>&lt;button&gt;</code> triggers the
+            <code>colorParagraphs()</code> function when clicked.
+          </li>
+          <li>
+            ✅ Inside the function:
+            <pre>const paragraphs = document.getElementsByTagName("p");</pre>
+            <ul>
+              <li>
+                This grabs all <code>&lt;p&gt;</code> tags on the page and
+                returns an <strong>HTMLCollection</strong> (like an array).
+              </li>
+            </ul>
+          </li>
+          <li>
+            ✅ The for loop:
+            <pre>
+      for (let i = 0; i &lt; paragraphs.length; i++) {
+        paragraphs[i].style.color = "blue";
+      }
+            </pre>
+            <ul>
+              <li>Iterates through each paragraph.</li>
+              <li>
+                Sets their <code>style.color</code> to "blue" using inline
+                styling.
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2>🎨 Visual Output</h2>
+        <table border="1" cellpadding="10">
+          <thead>
+            <tr>
+              <th>Before Click</th>
+              <th>After Click</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Black text</td>
+              <td>Both paragraphs turn blue</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>🔁 Alternate: Using <code>for...of</code> Loop</h2>
+        <pre>
+      for (let p of paragraphs) {
+        p.style.color = "blue";
+      }
+        </pre>
+
+        <h2>💡 Bonus: Make Each Paragraph a Different Color</h2>
+        <pre>
+      const colors = ["red", "green", "blue"];
+      for (let i = 0; i &lt; paragraphs.length; i++) {
+        paragraphs[i].style.color = colors[i % colors.length];
+      }
+        </pre>
+        <p>
+          🎨 Now each paragraph cycles through colors like red, green, blue.
+        </p>
+
+        <div class="practice">
+          <h2>✨ Practice Exercise:</h2>
+          <ul>
+            <li>
+              Try selecting all <code>&lt;h1&gt;</code> or
+              <code>&lt;li&gt;</code> tags and apply a new background color.
+            </li>
+            <li>
+              Use <code>console.log()</code> to print each element's content in
+              the loop.
+            </li>
+            <li>
+              Change font size for all paragraphs using
+              <code>style.fontSize</code>.
+            </li>
+            <li>
+              Mix <code>innerHTML</code> and <code>textContent</code> to add
+              icons or emojis to each element.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <h1>🔹 3. getElementsByClassName()</h1>
+
+        <p>
+          ✅ <strong>Use:</strong> Find all elements with a specific class name.
+        </p>
+
+        <h2>✅ Example:</h2>
+        <pre>
+      &lt;div class="box"&gt;Box 1&lt;/div&gt;
+      &lt;div class="box"&gt;Box 2&lt;/div&gt;
+      &lt;button onclick="highlightBoxes()"&gt;Highlight&lt;/button&gt;
+      
+      &lt;script&gt;
+        function highlightBoxes() {
+          const boxes = document.getElementsByClassName("box");
+          for (let i = 0; i &lt; boxes.length; i++) {
+            boxes[i].style.backgroundColor = "lightgreen";
+          }
+        }
+      &lt;/script&gt;
+        </pre>
+
+        <h2>🔍 What Happens Here?</h2>
+        <ul>
+          <li>
+            📦 <strong>HTML Structure:</strong>
+            <ul>
+              <li>
+                You have two <code>&lt;div&gt;</code> elements with class
+                <code>box</code> → Box 1 and Box 2.
+              </li>
+              <li>You have a button labeled "Highlight".</li>
+            </ul>
+          </li>
+          <li>
+            🎯 <strong>When Button is Clicked:</strong>
+            <ul>
+              <li><code>highlightBoxes()</code> function is called.</li>
+              <li>
+                It uses:
+                <pre>document.getElementsByClassName("box");</pre>
+                <ul>
+                  <li>
+                    This returns a live <strong>HTMLCollection</strong> of all
+                    elements with the class <code>box</code>.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            🖌️ <strong>Then, a loop:</strong>
+            <pre>
+      for (let i = 0; i &lt; boxes.length; i++) {
+        boxes[i].style.backgroundColor = "lightgreen";
+      }
+            </pre>
+            <ul>
+              <li>Changes the background color of each box to light green.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2>🎨 Visual Result</h2>
+        <table border="1" cellpadding="10">
+          <thead>
+            <tr>
+              <th>Before Click</th>
+              <th>After Click</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Default boxes</td>
+              <td>Both boxes turn light green ✅</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>✨ Optional: Add a Border Too</h2>
+        <p>Want the boxes to pop a bit more? Update the loop like this:</p>
+        <pre>
+      boxes[i].style.backgroundColor = "lightgreen";
+      boxes[i].style.border = "2px solid green";
+      boxes[i].style.padding = "10px";
+        </pre>
+
+        <div class="practice">
+          <h2>✨ Practice Exercise:</h2>
+          <ul>
+            <li>
+              Add a third <code>div</code> with class "box" and see how the
+              change applies to all of them.
+            </li>
+            <li>
+              Use <code>console.log()</code> to print each box’s text content
+              inside the loop.
+            </li>
+            <li>
+              Combine <code>textContent</code> and <code>innerHTML</code> to add
+              an emoji inside each box.
+            </li>
+            <li>
+              Try changing the text color or font size for all elements with the
+              same class.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <h1>🔹 4. setAttribute()</h1>
+
+        <p>
+          ✅ <strong>Use:</strong> Set or update an attribute of an element
+          (like <code>id</code>, <code>class</code>, <code>href</code>,
+          <code>src</code>, <code>style</code>, etc.).
+        </p>
+
+        <h2>✅ Example:</h2>
+        <pre>
+      &lt;img id="myImage" src="old.jpg" width="100"&gt;
+      &lt;button onclick="updateImage()"&gt;Change Image&lt;/button&gt;
+      
+      &lt;script&gt;
+        function updateImage() {
+          const img = document.getElementById("myImage");
+          img.setAttribute("src", "new.jpg");
+          img.setAttribute("width", "200");
+        }
+      &lt;/script&gt;
+        </pre>
+
+        <h2>🔍 How It Works</h2>
+        <ul>
+          <li>
+            🖼️ <strong>Initial Image:</strong>
+            <pre>&lt;img id="myImage" src="old.jpg" width="100"&gt;</pre>
+            <ul>
+              <li>
+                Displays an image <strong>(old.jpg)</strong> with width of
+                <strong>100px</strong>.
+              </li>
+            </ul>
+          </li>
+          <li>
+            🖱️ <strong>Button:</strong>
+            <pre>
+&lt;button onclick="updateImage()"&gt;Change Image&lt;/button&gt;</pre
+            >
+            <ul>
+              <li>
+                When clicked, it triggers the
+                <code>updateImage()</code> function.
+              </li>
+            </ul>
+          </li>
+          <li>
+            ⚙️ <strong>JavaScript Function:</strong>
+            <pre>
+      const img = document.getElementById("myImage");
+      img.setAttribute("src", "new.jpg");
+      img.setAttribute("width", "200");
+            </pre>
+            <ul>
+              <li>Gets the <code>&lt;img&gt;</code> element by its ID.</li>
+              <li>
+                Updates its <code>src</code> attribute to <code>new.jpg</code>.
+              </li>
+              <li>Changes the <code>width</code> to <strong>200</strong>.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2>🖼️ Visual Result</h2>
+        <table border="1" cellpadding="10">
+          <thead>
+            <tr>
+              <th>Before Click</th>
+              <th>After Click</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Image: old.jpg, width: 100px</td>
+              <td>Image: new.jpg, width: 200px</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>✅ Alternative (More Common Way):</h2>
+        <p>You can also change the attributes using dot notation:</p>
+        <pre>
+      img.src = "new.jpg";
+      img.width = 200;
+        </pre>
+        <p>
+          Both approaches are valid, but this method is more direct and readable
+          ✅
+        </p>
+
+        <div class="practice">
+          <h2>✨ Practice Exercise:</h2>
+          <ul>
+            <li>
+              Add a <code>title</code> attribute to the image using
+              <code>setAttribute</code>.
+            </li>
+            <li>Try changing the <code>alt</code> attribute dynamically.</li>
+            <li>
+              Use a second button to reset the image back to
+              <code>old.jpg</code>.
+            </li>
+            <li>
+              Log all attributes of the image using
+              <code>console.log(img.attributes)</code>.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container">
+        <h1>🔹 5. createElement()</h1>
+      
+        <p>✅ <strong>Use:</strong> Create new HTML elements dynamically using JavaScript.</p>
+      
+        <h2>✅ Example:</h2>
+        <pre>
+      &lt;ul id="list"&gt;
+        &lt;li&gt;Item 1&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      &lt;button onclick="addItem()"&gt;Add Item&lt;/button&gt;
+      
+      &lt;script&gt;
+        function addItem() {
+          const newItem = document.createElement("li");
+          newItem.textContent = "New List Item";
+          document.getElementById("list").appendChild(newItem);
+        }
+      &lt;/script&gt;
+        </pre>
+      
+        <h2>🔍 Step-by-Step Explanation</h2>
+        <ul>
+          <li>📋 <strong>Initial HTML:</strong>
+            <pre>
+      &lt;ul id="list"&gt;
+        &lt;li&gt;Item 1&lt;/li&gt;
+      &lt;/ul&gt;
+            </pre>
+            <ul><li>Contains one list item.</li></ul>
+          </li>
+          <li>🖱️ <strong>Button:</strong>
+            <ul><li>When clicked, it runs <code>addItem()</code>.</li></ul>
+          </li>
+          <li>⚙️ <strong>Function Execution:</strong>
+            <pre>
+      const newItem = document.createElement("li");
+      // Creates a new <li> element
+      
+      newItem.textContent = "New List Item";
+      // Sets its text content
+      
+      document.getElementById("list").appendChild(newItem);
+      // Appends it to the end of the list
+            </pre>
+          </li>
+        </ul>
+      
+        <h2>🔁 Result After Clicking "Add Item" Twice:</h2>
+        <pre>
+      &lt;ul&gt;
+        &lt;li&gt;Item 1&lt;/li&gt;
+        &lt;li&gt;New List Item&lt;/li&gt;
+        &lt;li&gt;New List Item&lt;/li&gt;
+      &lt;/ul&gt;
+        </pre>
+      
+        <h2>✨ Optional: Add Item Numbering</h2>
+        <p>Want each new item to be numbered automatically? Use a counter:</p>
+        <pre>
+      let count = 2;
+      
+      function addItem() {
+        const newItem = document.createElement("li");
+        newItem.textContent = "Item " + count;
+        document.getElementById("list").appendChild(newItem);
+        count++;
+      }
+        </pre>
+        <p>Now the list will grow like:</p>
+        <pre>
+      Item 1
+      Item 2
+      Item 3
+      Item 4 ...
+        </pre>
+      
+        <div class="practice">
+          <h2>🛠️ Practice Challenge:</h2>
+          <ul>
+            <li>Try creating a new <code>&lt;div&gt;</code> element and add it to the page.</li>
+            <li>Add an input field where the user can type the list item name before adding.</li>
+            <li>Use <code>createElement</code> to add an image dynamically to a <code>&lt;div&gt;</code>.</li>
+            <li>Bonus: Add a delete button to each new list item.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <h1>🔹 6. innerHTML vs textContent</h1>
+      
+        <p>✅ <strong>Use:</strong> Both are used to get or set content inside an HTML element, but they behave differently.</p>
+      
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Handles HTML Tags</th>
+              <th>Renders HTML</th>
+              <th>Treats as Plain Text</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>innerHTML</code></td>
+              <td>✅ Yes</td>
+              <td>✅ Yes</td>
+              <td>❌ No</td>
+            </tr>
+            <tr>
+              <td><code>textContent</code></td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+              <td>✅ Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <h2>✅ Example:</h2>
+        <pre>
+      &lt;p id="demo"&gt;&lt;/p&gt;
+      
+      &lt;script&gt;
+        const demo = document.getElementById("demo");
+        demo.innerHTML = "&lt;b&gt;Hello Bold!&lt;/b&gt;";  // Displays bold text
+        // demo.textContent = "&lt;b&gt;Hello Bold!&lt;/b&gt;";  // Displays: &lt;b&gt;Hello Bold!&lt;/b&gt; as text
+      &lt;/script&gt;
+        </pre>
+      
+        <h2>🔍 Difference Explained:</h2>
+        <p><strong><code>innerHTML</code></strong> parses and renders HTML tags inside the content.</p>
+        <p><strong><code>textContent</code></strong> treats everything as plain text — including any tags.</p>
+      
+        <h2>🧠 Use Cases:</h2>
+        <ul>
+          <li>Use <code>innerHTML</code> when you want to include HTML tags.</li>
+          <li>Use <code>textContent</code> when you want to prevent HTML from being rendered (e.g., for security or raw data).</li>
+        </ul>
+      
+        <h1>🔹 7. querySelector() and querySelectorAll()</h1>
+      
+        <p>✅ <strong>Use:</strong> Select elements using CSS-style selectors — powerful and flexible!</p>
+      
+        <table>
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Returns</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>querySelector()</code></td>
+              <td>First matching element</td>
+              <td><code>document.querySelector("p")</code></td>
+            </tr>
+            <tr>
+              <td><code>querySelectorAll()</code></td>
+              <td>All matching elements</td>
+              <td><code>document.querySelectorAll(".box")</code></td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <h2>✅ Example:</h2>
+        <pre>
+      &lt;div class="box"&gt;Box 1&lt;/div&gt;
+      &lt;div class="box"&gt;Box 2&lt;/div&gt;
+      &lt;button onclick="highlight()"&gt;Highlight&lt;/button&gt;
+      
+      &lt;script&gt;
+        function highlight() {
+          const firstBox = document.querySelector(".box");
+          firstBox.style.border = "2px solid red";
+      
+          const allBoxes = document.querySelectorAll(".box");
+          allBoxes.forEach(box => box.style.backgroundColor = "yellow");
+        }
+      &lt;/script&gt;
+        </pre>
+      
+        <h2>🔍 Benefits:</h2>
+        <ul>
+          <li>Allows you to select by tag, id, class, or even nested elements like <code>ul li:first-child</code>.</li>
+          <li>Very useful when working with dynamic or complex HTML.</li>
+        </ul>
+      
+        <h1>🔹 8. Traversing the DOM</h1>
+      
+        <p>✅ <strong>Use:</strong> Navigate around the DOM tree using relationships like parent/child/sibling.</p>
+      
+        <h2>✅ Common Properties:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>parentNode</code></td>
+              <td>Get the parent element</td>
+            </tr>
+            <tr>
+              <td><code>childNodes</code></td>
+              <td>Get all child nodes (including text)</td>
+            </tr>
+            <tr>
+              <td><code>firstChild</code></td>
+              <td>Get the first child node</td>
+            </tr>
+            <tr>
+              <td><code>lastChild</code></td>
+              <td>Get the last child node</td>
+            </tr>
+            <tr>
+              <td><code>nextSibling</code></td>
+              <td>Get the next node (can be text too)</td>
+            </tr>
+            <tr>
+              <td><code>previousSibling</code></td>
+              <td>Get the previous node</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <h2>✅ Example:</h2>
+        <pre>
+      &lt;ul id="myList"&gt;
+        &lt;li&gt;Item 1&lt;/li&gt;
+        &lt;li id="second"&gt;Item 2&lt;/li&gt;
+        &lt;li&gt;Item 3&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      &lt;script&gt;
+        const secondItem = document.getElementById("second");
+      
+        console.log(secondItem.parentNode);        // &lt;ul&gt;
+        console.log(secondItem.previousSibling);   // Might return a text node
+        console.log(secondItem.nextSibling);       // Might return a text node
+        console.log(secondItem.nextElementSibling); // &lt;li&gt;Item 3&lt;/li&gt;
+      &lt;/script&gt;
+        </pre>
+      
+        <h2>🧠 Pro Tips:</h2>
+        <ul>
+          <li>Use <code>nextElementSibling</code> and <code>previousElementSibling</code> to skip over text nodes.</li>
+          <li>Great for dynamic DOM operations when you don’t have direct access to an element.</li>
+        </ul>
+      
+        <div class="practice">
+          <h2>🛠️ Practice Challenge:</h2>
+          <ul>
+            <li>Traverse a list to highlight the last item using <code>lastChild</code> or <code>lastElementChild</code>.</li>
+            <li>Modify the DOM by traversing from a parent element to its children.</li>
+          </ul>
+        </div>
+
+      </div>
+      
+
+      <a class="back-link" href="topic4.html">← Back to Subtopics</a>
+    </div>
+  </body>
+</html>

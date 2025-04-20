@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4.1 Identify and Construct the DOM Tree</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f8f8f8;
+      color: #333;
+      text-align: left; /* All text aligned to the left */
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+      font-size: 24px;
+      margin-bottom: 15px;
+      text-align: left; /* Ensure headings are also left-aligned */
+    }
+
+    h3 {
+      color: #16a085;
+      font-size: 20px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #ecf0f1;
+      color: #2c3e50;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      overflow-x: auto;
+      line-height: 1.6;
+      color: red; /* Code in red */
+      font-family: "Courier New", monospace; /* Monospace font for code */
+    }
+
+    ul, ol {
+      padding-left: 30px;
+      margin-bottom: 20px;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      font-size: 16px;
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .answer {
+      display: none;
+      background: #f7f7f7;
+      padding: 15px;
+      margin-top: 10px;
+      border-left: 4px solid #3498db;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      border-radius: 5px;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .btn-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>4.1 Identify and Construct the Document Object Model (DOM) Tree</h1>
+
+    <h2>What is the DOM?</h2>
+    <p>
+      The <strong>Document Object Model (DOM)</strong> represents an HTML document as a tree where each element 
+      (like <code>&lt;html&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;p&gt;</code>) is a node. 
+      JavaScript can be used to access, modify, and manipulate the DOM.
+    </p>
+
+    <h2>DOM Tree Structure</h2>
+    <p>When a webpage loads, the browser converts the HTML into a structured DOM tree.</p>
+
+    <h3>Example HTML Page</h3>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;DOM Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 id="title"&gt;Hello, DOM!&lt;/h1&gt;
+    &lt;p class="info"&gt;This is a paragraph.&lt;/p&gt;
+    &lt;button onclick="changeText()"&gt;Click Me&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+
+    <h3>Corresponding DOM Tree</h3>
+    <pre>
+window
+ ├── document
+      ├── html
+          ├── head
+          │    └── title
+          └── body
+               ├── h1 (id="title")
+               ├── p (class="info")
+               └── button (onclick="changeText()")
+    </pre>
+
+    <h2>Important DOM Objects</h2>
+    <ul>
+      <li><strong>window</strong> → Represents the browser window (highest-level object).</li>
+      <li><strong>document</strong> → Represents the webpage.</li>
+      <li><strong>document.body</strong> → Represents the <code>&lt;body&gt;</code> tag.</li>
+      <li><strong>document.head</strong> → Represents the <code>&lt;head&gt;</code> tag.</li>
+      <li><strong>Other HTML elements</strong> → Access using methods like:
+        <ul>
+          <li><code>document.getElementById()</code></li>
+          <li><code>document.getElementsByClassName()</code></li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>JavaScript Example: Accessing the DOM</h2>
+    <pre>
+// Access the title element
+let heading = document.getElementById("title");
+console.log(heading.innerText); // Output: "Hello, DOM!"
+
+
+// Change text using JavaScript
+function changeText() {
+    heading.innerText = "DOM Manipulated!";
+}
+    </pre>
+
+    <h2>Practice Questions</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">What is the DOM tree and why is it important in JavaScript?</button>
+        <div id="q1" class="answer">
+          <h4>Answer:</h4>
+          <p>
+            The DOM tree is a structured representation of an HTML document. It is important because JavaScript uses it to access and manipulate webpage content dynamically, enabling interactivity and real-time updates.
+          </p>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">Identify the parent, child, and sibling nodes in the following HTML:</button>
+        <pre>
+&lt;div&gt;
+  &lt;h2&gt;Welcome&lt;/h2&gt;
+  &lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;/div&gt;
+        </pre>
+        <div id="q2" class="answer">
+          <h4>Answer:</h4>
+          <p><strong>Parent:</strong> &lt;div&gt;<br>
+             <strong>Children:</strong> &lt;h2&gt; and &lt;p&gt;<br>
+             <strong>Siblings:</strong> &lt;h2&gt; and &lt;p&gt; (they are siblings of each other)</p>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q3')">Write JavaScript to: Access &lt;h1&gt; and change its text. Change background color of &lt;body&gt; on button click.</button>
+        <div id="q3" class="answer">
+          <h4>Answer:</h4>
+          <pre>
+let h1 = document.getElementById("title");
+h1.innerText = "Updated Heading";
+
+function changeBackground() {
+  document.body.style.backgroundColor = "#dff0d8";
+}
+          </pre>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q4')">Predict the output:</button>
+        <pre>
+console.log(document.body.innerHTML);
+console.log(document.head.innerText);
+        </pre>
+        <div id="q4" class="answer">
+          <h4>Answer:</h4>
+          <p>
+            <strong>document.body.innerHTML</strong> prints all inner HTML inside the &lt;body&gt;.<br>
+            <strong>document.head.innerText</strong> prints the visible text content inside the &lt;head&gt;, such as the title.
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="btn-container">
+      <a class="back-link" href="topic4.html">← Back to Subtopics</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleAnswer(id) {
+      const answer = document.getElementById(id);
+      answer.style.display = answer.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

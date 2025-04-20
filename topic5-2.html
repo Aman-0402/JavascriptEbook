@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>5.1 Retrieve Form Input and Set Field Values</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px 40px;
+        margin: 0;
+      }
+
+      h1 {
+        color: #2c3e50;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 10px;
+      }
+
+      h2,
+      h3 {
+        color: #2980b9;
+        margin-top: 30px;
+      }
+
+      .content {
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+        max-width: 900px;
+        margin: auto;
+      }
+
+      code {
+        background-color: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 4px;
+        color: #c0392b;
+        font-weight: bold;
+      }
+
+      pre {
+        background-color: #272822;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.95em;
+        margin-top: 10px;
+      }
+
+      ul,
+      ol {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      a {
+        display: inline-block;
+        text-decoration: none;
+        margin-top: 30px;
+        color: #ffffff;
+        background-color: #3498db;
+        padding: 10px 18px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+      }
+
+      a:hover {
+        background-color: #2980b9;
+      }
+
+      /* Interactive form example */
+      label,
+      input,
+      button {
+        display: block;
+        margin: 12px 0;
+        font-size: 16px;
+      }
+
+      input {
+        padding: 8px 12px;
+        width: 250px;
+        border: 2px solid #ccc;
+        border-radius: 6px;
+        transition: border-color 0.3s;
+      }
+
+      input:focus {
+        border-color: #3498db;
+        outline: none;
+      }
+
+      button {
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #27ae60;
+      }
+
+      #output {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ✅ 5.2 Input Validation: Case, String Comparisons, NaN, Not Blank -->
+<section style="margin-top: 40px;">
+    <h2 style="color: #2c3e50;">✅ 5.2 Input Validation: Case, String Comparisons, NaN, Not Blank</h2>
+    <p>Input validation ensures users provide correct and expected values before submission.</p>
+  
+    <!-- 🔹 1. Case Sensitivity & String Comparisons -->
+    <h3 style="color: #3498db;">🔹 1. Case Sensitivity & String Comparisons</h3>
+    <p>Ensure input matches specific text regardless of case.</p>
+  
+    <div style="background-color: #f9f9f9; padding: 20px; border-left: 5px solid #3498db;">
+      <input type="text" id="username" placeholder="Enter username" style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 5px;"><br><br>
+      <button onclick="validateUsername()" style="padding: 8px 12px; background-color: #3498db; color: white; border: none; border-radius: 5px;">Submit</button><br><br>
+      <p id="output" style="color: #e74c3c;"></p>
+    </div>
+  
+    <script>
+      function validateUsername() {
+        let input = document.getElementById("username").value.trim();
+        let validUser = "admin"; // Expected username (lowercase)
+        if (input.toLowerCase() === validUser) {
+          document.getElementById("output").textContent = "Valid username!";
+        } else {
+          document.getElementById("output").textContent = "Invalid username!";
+        }
+      }
+    </script>
+
+<pre>
+    &lt;input type="text" id="username" placeholder="Enter username"&gt;
+    &lt;button onclick="validateUsername()"&gt;Submit&lt;/button&gt;
+    &lt;p id="output"&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+      function validateUsername() {
+        let input = document.getElementById("username").value.trim();
+        let validUser = "admin"; // Expected username (lowercase)
+        if (input.toLowerCase() === validUser) {
+          document.getElementById("output").textContent = "Valid username!";
+        } else {
+          document.getElementById("output").textContent = "Invalid username!";
+        }
+      }
+    &lt;/script&gt;
+    </pre>
+    
+  
+    <p style="font-weight: bold; color: #27ae60; margin-top: 20px;">🔍 Explanation:</p>
+    <ul>
+      <li><code>.trim()</code> removes extra spaces.</li>
+      <li><code>.toLowerCase()</code> ensures case-insensitive comparison.</li>
+    </ul>
+  
+    <!-- 🔹 2. Number Validation (isNaN()) -->
+    <h3 style="color: #3498db;">🔹 2. Number Validation (isNaN())</h3>
+    <p>Check if input is a valid number.</p>
+  
+    <div style="background-color: #f9f9f9; padding: 20px; border-left: 5px solid #3498db;">
+      <input type="text" id="age" placeholder="Enter your age" style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 5px;"><br><br>
+      <button onclick="validateAge()" style="padding: 8px 12px; background-color: #3498db; color: white; border: none; border-radius: 5px;">Submit</button><br><br>
+      <p id="message" style="color: #e74c3c;"></p>
+    </div>
+  
+    <script>
+      function validateAge() {
+        let age = document.getElementById("age").value;
+        if (age === "") {
+          document.getElementById("message").textContent = "Age cannot be blank!";
+        } else if (isNaN(age)) {
+          document.getElementById("message").textContent = "Please enter a valid number!";
+        } else {
+          document.getElementById("message").textContent = "Valid age!";
+        }
+      }
+    </script>
+
+<pre>
+    &lt;input type="text" id="age" placeholder="Enter your age"&gt;
+    &lt;button onclick="validateAge()"&gt;Submit&lt;/button&gt;
+    &lt;p id="message"&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+      function validateAge() {
+        let age = document.getElementById("age").value;
+        if (age === "") {
+          document.getElementById("message").textContent = "Age cannot be blank!";
+        } else if (isNaN(age)) {
+          document.getElementById("message").textContent = "Please enter a valid number!";
+        } else {
+          document.getElementById("message").textContent = "Valid age!";
+        }
+      }
+    &lt;/script&gt;
+    </pre>
+    
+  
+    <p style="font-weight: bold; color: #27ae60; margin-top: 20px;">🔍 Explanation:</p>
+    <ul>
+      <li><code>isNaN(value)</code> checks if value is not a number.</li>
+      <li>The first condition ensures the input is not empty.</li>
+    </ul>
+  
+    <!-- 🔹 3. Not Blank Validation -->
+    <h3 style="color: #3498db;">🔹 3. Not Blank Validation</h3>
+    <p>Ensure input is not empty.</p>
+  
+    <div style="background-color: #f9f9f9; padding: 20px; border-left: 5px solid #3498db;">
+      <input type="email" id="email" placeholder="Enter email" style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 5px;"><br><br>
+      <button onclick="validateEmail()" style="padding: 8px 12px; background-color: #3498db; color: white; border: none; border-radius: 5px;">Submit</button><br><br>
+      <p id="emailMsg" style="color: #e74c3c;"></p>
+    </div>
+  
+    <script>
+      function validateEmail() {
+        let email = document.getElementById("email").value.trim();
+        if (email === "") {
+          document.getElementById("emailMsg").textContent = "Email cannot be blank!";
+        } else {
+          document.getElementById("emailMsg").textContent = "Valid email!";
+        }
+      }
+    </script>
+
+<pre>
+    &lt;input type="email" id="email" placeholder="Enter email"&gt;
+    &lt;button onclick="validateEmail()"&gt;Submit&lt;/button&gt;
+    &lt;p id="emailMsg"&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+      function validateEmail() {
+        let email = document.getElementById("email").value.trim();
+        if (email === "") {
+          document.getElementById("emailMsg").textContent = "Email cannot be blank!";
+        } else {
+          document.getElementById("emailMsg").textContent = "Valid email!";
+        }
+      }
+    &lt;/script&gt;
+    </pre>
+    
+  
+    <p style="font-weight: bold; color: #27ae60; margin-top: 20px;">🔍 Explanation:</p>
+    <ul>
+      <li><code>.trim()</code> prevents spaces from being counted.</li>
+    </ul>
+  </section>
+  
+  
+    <a href="topic5.html">← Back to Topic 5</a>
+  </body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Attribute Event</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
+      button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #2980b9;
+      }
+      pre {
+        background-color: #f0f0f0;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+      .output-box {
+        background: #e8f0fe;
+        padding: 10px;
+        border-left: 5px solid #3498db;
+        margin: 10px 0;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .practice {
+        background-color: #fffbea;
+        padding: 15px;
+        border-left: 5px solid #f39c12;
+        margin-top: 20px;
+      }
+      .back-link {
+        text-decoration: none;
+        color: #3498db;
+        display: inline-block;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔹 1. HTML Attribute Event</h1>
+
+      <p>
+        ✅ <strong>Use:</strong> Attach an event directly in an HTML tag (though
+        not the best practice, it's simple and quick).
+      </p>
+
+      <h2>🔹 Syntax:</h2>
+      <pre>
+&lt;button onclick="greetUser()"&gt;Click Me&lt;/button&gt;
+      </pre>
+
+      <h2>✅ JS Code:</h2>
+      <pre>
+&lt;script&gt;
+  function greetUser() {
+    alert("Hello from HTML attribute event!");
+  }
+&lt;/script&gt;
+      </pre>
+
+      <h2>✅ Basic Usage</h2>
+      <p>You need to link this function to an element in your HTML. Example:</p>
+      <pre>
+&lt;button onclick="greetUser()"&gt;Click Me&lt;/button&gt;
+&lt;script&gt;
+  function greetUser() {
+    alert("Hello from HTML attribute event!");
+  }
+&lt;/script&gt;
+      </pre>
+
+      <h2>🛠 How it Works:</h2>
+      <ul>
+        <li>
+          The <code>&lt;button&gt;</code> has an <code>onclick</code> event.
+        </li>
+        <li>When clicked, it calls the <code>greetUser()</code> function.</li>
+        <li>
+          The function triggers an alert saying:
+          <pre>"Hello from HTML attribute event!"</pre>
+        </li>
+      </ul>
+
+      <h2>🎯 Alternative Ways to Add Events</h2>
+      <h3>1️⃣ Using JavaScript (addEventListener)</h3>
+      <p>A more modern and preferred way:</p>
+      <pre>
+&lt;button id="greetBtn"&gt;Click Me&lt;/button&gt;
+&lt;script&gt;
+  document.getElementById("greetBtn").addEventListener("click", function() {
+    alert("Hello from addEventListener!");
+  });
+&lt;/script&gt;
+      </pre>
+      <p>✅ Advantage: Keeps HTML clean and allows multiple event listeners.</p>
+
+      <div class="practice">
+        <h3>Practice:</h3>
+        <p>
+          Create a button that triggers a greeting alert when clicked using the
+          HTML attribute event. Then, try doing the same with
+          <code>addEventListener()</code> for practice.
+        </p>
+      </div>
+
+      <h3>2️⃣ Using <code>onclick</code> Property in JavaScript</h3>
+      <pre>
+&lt;button id="greetBtn"&gt;Click Me&lt;/button&gt;
+&lt;script&gt;
+  document.getElementById("greetBtn").onclick = function() {
+    alert("Hello from JS onclick property!");
+  };
+&lt;/script&gt;
+</pre
+      >
+      <p>✅ Simpler, but overwrites previous <code>onclick</code> handlers.</p>
+
+      <h2>💡 Which One is Best?</h2>
+      <table border="1" cellspacing="0" cellpadding="8">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Pros</th>
+            <th>Cons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HTML Attribute (<code>onclick="greetUser()"</code>)</td>
+            <td>Simple, quick</td>
+            <td>Hard to manage in large projects</td>
+          </tr>
+          <tr>
+            <td><code>onclick</code> Property</td>
+            <td>Easy to use in JavaScript</td>
+            <td>Overwrites other event handlers</td>
+          </tr>
+          <tr>
+            <td><code>addEventListener</code></td>
+            <td>Most flexible, allows multiple handlers</td>
+            <td>Slightly more code</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        🔹 <strong>Best practice:</strong> Use <code>addEventListener</code> for
+        cleaner, scalable code.
+      </p>
+
+      <h1>✅ 2. DOM Events (Event Property)</h1>
+      <p>
+        Attach the event in JavaScript using the element's event property (like
+        <code>.onclick</code>).
+      </p>
+
+      <h2>🔹 Example:</h2>
+      <pre>
+&lt;button id="btn"&gt;Click Me&lt;/button&gt;
+&lt;script&gt;
+  document.getElementById("btn").onclick = function() {
+    alert("Hello from DOM event!");
+  };
+&lt;/script&gt;
+</pre
+      >
+
+      <h2>🔍 Step-by-Step Breakdown</h2>
+      <ol>
+        <li>
+          <code>document.getElementById("btn")</code><br />• Finds the
+          <code>&lt;button&gt;</code> element with <code>id="btn"</code>.
+        </li>
+        <li>
+          <code>.onclick = function() { ... }</code><br />• Assigns a function
+          that runs when the button is clicked.<br />• Displays an
+          <code>alert()</code> message.
+        </li>
+      </ol>
+
+      <h2>🎯 Alternative Methods</h2>
+      <h3>1️⃣ Using <code>addEventListener</code> (Preferred Method)</h3>
+      <pre>
+document.getElementById("btn").addEventListener("click", function() {
+  alert("Hello from addEventListener!");
+});
+</pre
+      >
+      <p>✅ Why use this?</p>
+      <ul>
+        <li>Allows multiple event listeners.</li>
+        <li>
+          More flexible than <code>.onclick</code> (which overwrites previous
+          handlers).
+        </li>
+      </ul>
+
+      <h3>2️⃣ Using an Arrow Function (Modern Syntax)</h3>
+      <pre>
+document.getElementById("btn").onclick = () =&gt; {
+  alert("Hello from an arrow function!");
+};
+</pre
+      >
+      <p>✅ Why use this?</p>
+      <ul>
+        <li>Cleaner and shorter code.</li>
+        <li>Works well with modern JavaScript.</li>
+      </ul>
+
+      <h3>🔥 Enhancements: Change Button Text on Click</h3>
+      <pre>
+document.getElementById("btn").addEventListener("click", function() {
+  this.textContent = "Clicked!";
+  alert("Hello from enhanced event handling!");
+});
+</pre
+      >
+      <p>✅ Now, when you click the button, its text changes to "Clicked!".</p>
+
+      <h2>💡 Which Method is Best?</h2>
+      <table border="1" cellspacing="0" cellpadding="8">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Pros</th>
+            <th>Cons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>onclick</code> property</td>
+            <td>Simple, easy to use</td>
+            <td>Overwrites previous handlers</td>
+          </tr>
+          <tr>
+            <td><code>addEventListener</code></td>
+            <td>Allows multiple handlers</td>
+            <td>Slightly more code</td>
+          </tr>
+          <tr>
+            <td>Arrow function <code>(()=&gt;{})</code></td>
+            <td>Modern, clean syntax</td>
+            <td>Less supported in older browsers</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h1>✅ 3. <code>addEventListener()</code></h1>
+    <p>
+      Recommended way. Allows multiple event listeners on the same element and
+      clean separation of HTML &amp; JS.
+    </p>
+
+    <h3>🔹 Syntax:</h3>
+    <pre>
+element.addEventListener(event, function);
+</pre
+    >
+
+    <h3>🔹 Example:</h3>
+    <pre>
+&lt;button id="listenBtn"&gt;Click using addEventListener&lt;/button&gt;
+&lt;script&gt;
+  const btn = document.getElementById("listenBtn");
+  btn.addEventListener("click", function () {
+    alert("Hello from addEventListener!");
+  });
+&lt;/script&gt;
+</pre
+    >
+
+    <h2>🎯 Why <code>addEventListener</code> is Better?</h2>
+
+    <h3>✅ Allows multiple event listeners</h3>
+    <pre>
+btn.addEventListener("click", function () {
+  console.log("Another event listener added!");
+});
+</pre
+    >
+    <p>
+      Now, both the <code>alert</code> and <code>console.log</code> will
+      execute!<br />
+      This wouldn’t be possible with <code>.onclick</code>, which replaces
+      previous handlers.
+    </p>
+
+    <h3>✅ Supports multiple event types</h3>
+    <pre>
+btn.addEventListener("mouseover", function () {
+  btn.style.backgroundColor = "lightblue"; // Change color on hover
+});
+</pre
+    >
+
+    <h3>✅ Removes events dynamically</h3>
+    <pre>
+function greet() {
+  alert("This will be removed after first click!");
+  btn.removeEventListener("click", greet);
+}
+btn.addEventListener("click", greet);
+</pre
+    >
+    <p>
+      🔹 After the first click, it removes itself! (Good for one-time events).
+    </p>
+
+    <h2>🔥 Enhancing Your Button</h2>
+
+    <h3>1️⃣ Change Text on Click</h3>
+    <pre>
+btn.addEventListener("click", function () {
+  btn.textContent = "Clicked!";
+});
+</pre
+    >
+
+    <h3>2️⃣ Add a Double-Click Event</h3>
+    <pre>
+btn.addEventListener("dblclick", function () {
+  alert("Double-click detected!");
+});
+</pre
+    >
+
+    <h3>3️⃣ Toggle Button Color</h3>
+    <pre>
+btn.addEventListener("click", function () {
+  btn.style.backgroundColor =
+    btn.style.backgroundColor === "green" ? "red" : "green";
+});
+</pre
+    >
+
+    <h2>⚡ Final Thoughts</h2>
+    <p>
+      Using <code>addEventListener</code> makes your JavaScript more scalable
+      and modular! 🚀
+    </p>
+
+    <h2>🧠 Summary Table:</h2>
+    <table border="1" cellspacing="0" cellpadding="8">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Best Use Case</th>
+          <th>Multiple Listeners?</th>
+          <th>Inline or JS?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HTML Attribute Event</td>
+          <td>Quick testing, beginners</td>
+          <td>❌ No</td>
+          <td>Inline</td>
+        </tr>
+        <tr>
+          <td>DOM Event Property</td>
+          <td>Small scripts, single handler</td>
+          <td>❌ No</td>
+          <td>JS</td>
+        </tr>
+        <tr>
+          <td><code>addEventListener</code></td>
+          <td>Modern apps, reusable &amp; multiple handlers</td>
+          <td>✅ Yes</td>
+          <td>JS</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a class="back-link" href="topic4.html">← Back to Subtopics</a>
+  </body>
+</html>

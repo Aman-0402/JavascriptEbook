@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Output Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px 0;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      font-size: 1rem;
+      overflow-x: auto;
+    }
+    .output-box {
+      background-color: #f9f9f9;
+      padding: 15px;
+      margin-top: 20px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+    .note {
+      background-color: #fff3cd;
+      padding: 10px;
+      border-left: 5px solid #f39c12;
+      margin-top: 20px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #3498db;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript Output Methods</h1>
+
+    <p>In JavaScript, you can output content to an HTML document using three main methods:</p>
+    <ol>
+      <li><strong>document.write()</strong> – Directly writes content to the document (not recommended for dynamic updates).</li>
+      <li><strong>innerHTML</strong> – Changes the HTML content inside an element.</li>
+      <li><strong>textContent</strong> – Updates only the text content of an element, ignoring any HTML tags.</li>
+    </ol>
+
+    <div class="note">
+      <h4>✅ Example Code:</h4>
+      <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;JavaScript Output Methods&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;JavaScript Output Methods&lt;/h1&gt;
+&lt;button onclick="useDocumentWrite()"&gt;Use document.write()&lt;/button&gt;
+&lt;button onclick="useInnerHTML()"&gt;Use innerHTML&lt;/button&gt;
+&lt;button onclick="useTextContent()"&gt;Use textContent&lt;/button&gt;
+&lt;div id="output"&gt;&lt;/div&gt;
+&lt;script&gt;
+// Method 1: document.write (Overwrites the whole document if used after page load)
+function useDocumentWrite() {
+    document.write("&lt;h2&gt;This is from document.write()&lt;/h2&gt;");
+}
+// Method 2: innerHTML (Modifies content inside an element)
+function useInnerHTML() {
+    document.getElementById("output").innerHTML = "&lt;strong&gt;This is from innerHTML&lt;/strong&gt;";
+}
+// Method 3: textContent (Modifies text only, ignores HTML)
+function useTextContent() {
+    document.getElementById("output").textContent = "&lt;strong&gt;This is from textContent&lt;/strong&gt;";
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+    </div>
+
+    <h2>🔍 Explanation:</h2>
+    <ul>
+      <li><strong>document.write()</strong> – If used after the page loads, it erases all existing content. Use it only while the page is initially loading.</li>
+      <li><strong>innerHTML</strong> – Modifies an element's HTML content, allowing HTML tags inside.</li>
+      <li><strong>textContent</strong> – Changes only the text inside an element, ignoring HTML formatting.</li>
+    </ul>
+
+    <h2>🛠 Debugging:</h2>
+    <ul>
+      <li><strong>Issue:</strong> If you use document.write() after the page loads, it clears everything. <br><strong>Fix:</strong> Use it only in the initial script or inside window.onload.</li>
+      <li><strong>Issue:</strong> textContent does not interpret HTML. <br><strong>Fix:</strong> Use innerHTML if you want to render HTML.</li>
+    </ul>
+
+    <h2>📝 Practice Tasks</h2>
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">What is the difference between innerHTML and textContent?</button>
+        <div id="q1" class="output-box">
+          <h4>Answer:</h4>
+          <p><strong>innerHTML</strong> changes the HTML content, allowing HTML tags inside. <br><strong>textContent</strong> modifies only the text and ignores any HTML tags.</p>
+        </div>
+      </li>
+      <li>
+        <button onclick="toggleAnswer('q2')">Why is document.write() not recommended for dynamic updates?</button>
+        <div id="q2" class="output-box">
+          <h4>Answer:</h4>
+          <p><strong>document.write()</strong> replaces the entire content of the document if used after the page is loaded, which can lead to losing all previous content.</p>
+        </div>
+      </li>
+    </ol>
+
+    <a class="back-link" href="topic4.html">← Back to Subtopics</a>
+  </div>
+
+  <script>
+    function toggleAnswer(id) {
+      const answer = document.getElementById(id);
+      answer.style.display = answer.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
