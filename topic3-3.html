@@ -1,218 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>3.3 Loops in JavaScript</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            margin-top: 30px;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 5px;
-        }
-
-        h3 {
-            margin-top: 25px;
-        }
-
-        p {
-            margin-top: 10px;
-        }
-
-        pre {
-            background: #272822;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 6px;
-            overflow-x: auto;
-            font-size: 16px;
-        }
-
-        .output {
-            background-color: #ecf0f1;
-            padding: 10px 15px;
-            border-left: 5px solid #3498db;
-            margin: 15px 0;
-            font-family: monospace;
-        }
-
-        .question {
-            background-color: #ffffff;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .question h3 {
-            margin-top: 0;
-        }
-
-        code {
-            background-color: #eee;
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-family: monospace;
-        }
-
-        hr {
-            margin: 40px 0;
-            border: none;
-            border-top: 1px solid #ccc;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>3.3 Loops in JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background: #eef2f3;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #222;
+    }
+    pre {
+      background-color: #f9f9f9;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .answer {
+      display: none;
+      background-color: #e6f7ff;
+      border-left: 4px solid #007bff;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 5px;
+    }
+    .back-link {
+      display: block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const elem = document.getElementById(id);
+      elem.style.display = (elem.style.display === "block") ? "none" : "block";
+    }
+  </script>
 </head>
 <body>
+  <div class="container">
     <h1>3.3 Loops in JavaScript</h1>
-    <p>Loops help us repeat actions multiple times.</p>
+    <p><strong>Date:</strong> 06 April 2025</p>
 
-    <h2>1. for Loop</h2>
-    <p>Runs a block a fixed number of times.</p>
-    <pre>for (let i = 1; i <= 5; i++) {
-    console.log("Iteration " + i);
-}</pre>
-    <div class="output">
-        Iteration 1<br>
-        Iteration 2<br>
-        Iteration 3<br>
-        Iteration 4<br>
-        Iteration 5
-    </div>
+    <h2>Types of Loops</h2>
 
-    <h2>2. for...in Loop</h2>
-    <p>Used for objects to loop through keys.</p>
-    <pre>let person = { name: "Aman", age: 25, city: "Delhi" };
-for (let key in person) {
-    console.log(key + ": " + person[key]);
-}</pre>
-    <div class="output">
-        name: Aman<br>
-        age: 25<br>
-        city: Delhi
-    </div>
+    <h3>1. for loop</h3>
+    <pre><code>for (let i = 1; i <= 5; i++) {
+  console.log("Number: " + i);
+}</code></pre>
 
-    <h2>3. while Loop</h2>
-    <p>Runs while a condition is true.</p>
-    <pre>let count = 1;
-while (count <= 5) {
-    console.log(count);
-    count++;
-}</pre>
-    <div class="output">
-        1<br>
-        2<br>
-        3<br>
-        4<br>
-        5
-    </div>
+    <h3>2. while loop</h3>
+    <pre><code>let i = 1;
+while (i <= 5) {
+  console.log("Count: " + i);
+  i++;
+}</code></pre>
 
-    <h2>4. do...while Loop</h2>
-    <p>Runs at least once, then repeats while condition is true.</p>
-    <pre>let num = 1;
+    <h3>3. do...while loop</h3>
+    <pre><code>let i = 1;
 do {
-    console.log("Value: " + num);
-    num++;
-} while (num <= 3);</pre>
-    <div class="output">
-        Value: 1<br>
-        Value: 2<br>
-        Value: 3
-    </div>
+  console.log("Hello " + i);
+  i++;
+} while (i <= 3);</code></pre>
 
-    <h2>5. break and continue</h2>
-    <p><strong>break</strong> stops the loop early. <strong>continue</strong> skips the current iteration.</p>
-    
-    <pre>for (let i = 1; i <= 5; i++) {
-    if (i == 3) break;
-    console.log(i);
-}</pre>
-    <div class="output">
-        1<br>
-        2
-    </div>
+    <h3>4. for...of loop (for arrays)</h3>
+    <pre><code>const fruits = ["apple", "banana", "cherry"];
+for (let fruit of fruits) {
+  console.log(fruit);
+}</code></pre>
 
-    <pre>for (let i = 1; i <= 5; i++) {
-    if (i == 3) continue;
-    console.log(i);
-}</pre>
-    <div class="output">
-        1<br>
-        2<br>
-        4<br>
-        5
-    </div>
+    <h3>5. for...in loop (for objects)</h3>
+    <pre><code>const person = {name: "Aman", age: 22};
+for (let key in person) {
+  console.log(key + ": " + person[key]);
+}</code></pre>
 
     <h2>Practice Questions</h2>
-
-    <div class="question">
-        <h3>Q1: Print numbers from 10 to 1</h3>
-        <pre>for (let i = 10; i >= 1; i--) {
-    console.log(i);
-}</pre>
-        <div class="output">
-            10<br>
-            9<br>
-            8<br>
-            7<br>
-            6<br>
-            5<br>
-            4<br>
-            3<br>
-            2<br>
-            1
+    <ol>
+      <li>
+        <button onclick="toggleAnswer('q1')">Print numbers from 1 to 10 using a while loop</button>
+        <div class="answer" id="q1">
+          <pre><code>let i = 1;
+while (i <= 10) {
+  console.log(i);
+  i++;
+}
+// Output: 1 to 10</code></pre>
         </div>
-    </div>
+      </li>
 
-    <div class="question">
-        <h3>Q2: Predict the output</h3>
-        <pre>let i = 1;
-while (i < 5) {
-    console.log(i);
-    i++;
-}</pre>
-        <div class="output">
-            1<br>
-            2<br>
-            3<br>
-            4
+      <li>
+        <button onclick="toggleAnswer('q2')">Use a for...of loop to print names in an array</button>
+        <div class="answer" id="q2">
+          <pre><code>const names = ["Aman", "Riya", "Karan"];
+for (let name of names) {
+  console.log(name);
+}
+// Output: Aman, Riya, Karan</code></pre>
         </div>
-    </div>
+      </li>
 
-    <div class="question">
-        <h3>Q3: Print even numbers from 1 to 20 (using continue)</h3>
-        <pre>for (let i = 1; i <= 20; i++) {
-    if (i % 2 !== 0) continue;
-    console.log(i);
-}</pre>
-        <div class="output">
-            2<br>
-            4<br>
-            6<br>
-            8<br>
-            10<br>
-            12<br>
-            14<br>
-            16<br>
-            18<br>
-            20
+      <li>
+        <button onclick="toggleAnswer('q3')">Explain difference between for and while loop with example</button>
+        <div class="answer" id="q3">
+          <pre><code>// for loop: use when number of iterations is known
+for (let i = 0; i < 3; i++) {
+  console.log("For loop");
+}
+
+// while loop: use when condition is checked before each iteration
+let j = 0;
+while (j < 3) {
+  console.log("While loop");
+  j++;
+}</code></pre>
         </div>
-    </div>
+      </li>
+    </ol>
+
+    <a href="topic3.html" class="back-link">← Back to Topic 3</a>
+  </div>
 </body>
 </html>
