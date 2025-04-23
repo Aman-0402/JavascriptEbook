@@ -61,8 +61,9 @@
       font-size: 1.1rem;
       overflow-x: auto;
       line-height: 1.6;
-      color: rgb(0, 0, 0)(0, 0, 0); /* Code in red */
-      font-family: "Courier New", monospace; /* Monospace font for code */
+      color: rgb(0, 0, 0); /* Fixed: Removed duplicate (0, 0, 0) */
+        font-family: "Courier New", monospace;
+        font-weight: bold; /* Make the code bold */
     }
 
     ul, ol {
