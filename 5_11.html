@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retrieve Form Input</title>
+</head>
+<body>
+
+    <!-- Label and input field for user to enter their name -->
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" placeholder="Type here">
+    
+    <!-- Button to trigger the function getInputValue() -->
+    <button onclick="getInputValue()">Submit</button>
+
+    <!-- Paragraph to display the output message -->
+    <p id="output"></p>
+
+    <script>
+        // Function to retrieve input value and display it in the paragraph
+        function getInputValue() {
+            // Get the value entered in the input field
+            let nameValue = document.getElementById("name").value;
+
+            // Update the paragraph with a greeting message
+            document.getElementById("output").textContent = "Hello, " + nameValue;
+        }
+    </script>
+
+</body>
+</html>

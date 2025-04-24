@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #title {
+            color: teal;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Hello, DOM!</h1>
+    <p class="info">This is a paragraph from the DOM tree.</p>
+    <button onclick="changeText()">Change Title</button>
+    <button onclick="changeBackground()">Change Background</button>
+
+    <script>
+        // Access h1 element
+        let heading = document.getElementById("title");
+
+        // Function to change the h1 text
+        function changeText() {
+            heading.innerText = "DOM Manipulated!";
+        }
+
+        // Function to change the background color of the body
+        function changeBackground() {
+            document.body.style.backgroundColor = "#0000ff";
+        }
+
+        // Logging other DOM properties
+        console.log("Document Object:", document);
+        console.log("Body HTML:", document.body.innerHTML);
+        console.log("Window Width:", window.innerWidth);
+    </script>
+</body>
+</html>

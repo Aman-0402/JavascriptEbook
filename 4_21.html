@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Event Handling - Class Session</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+        transition: background-color 0.5s ease;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      #inputBox {
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid gray;
+      }
+
+      #hoverText {
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎯 JavaScript Event Handling - Interactive Session</h1>
+
+    <!-- Click Event -->
+    <button id="clickBtn">Click Me (0)</button>
+
+    <!-- Keyboard Events -->
+    <h3>Type something:</h3>
+    <input type="text" id="inputBox" />
+    <p id="keyLogger">Last Key Pressed: <span>-</span></p>
+
+    <!-- Dropdown Change Event -->
+    <h3>Pick a Background Color:</h3>
+    <select id="colorPicker">
+      <option value="">Default</option>
+      <option value="lightblue">Light Blue</option>
+      <option value="lightgreen">Light Green</option>
+      <option value="lightcoral">Light Coral</option>
+    </select>
+
+    <!-- Mouse Events -->
+    <h3>Hover over this text for a surprise:</h3>
+    <p id="hoverText">Hover over me!</p>
+    <script>
+      // Page Load Event
+      window.onload = function () {
+        alert("🚀 Welcome to the JavaScript Event Handling Class!");
+      };
+
+      // Click Event (Button Counter)
+      let clickCount = 0;
+      document.getElementById("clickBtn").onclick = function () {
+        clickCount++;
+        this.innerText = `Click Me (${clickCount})`;
+      };
+
+      // Keyboard Events
+      document.getElementById("inputBox").onkeydown = function (event) {
+        document.getElementById("keyLogger").querySelector("span").innerText =
+          event.key;
+      };
+
+      // Focus and Blur Events
+      document.getElementById("inputBox").onfocus = function () {
+        this.style.backgroundColor = "#ffffcc";
+      };
+      document.getElementById("inputBox").onblur = function () {
+        this.style.backgroundColor = "white";
+        alert("📢 You left the input field!");
+      };
+
+      // Change Event (Dropdown Changes Background Color)
+      document.getElementById("colorPicker").onchange = function () {
+        document.body.style.backgroundColor = this.value;
+      };
+
+      // Mouse Events (Hover Effects)
+      document.getElementById("hoverText").onmouseover = function () {
+        this.style.color = "blue";
+        this.innerText = "✨ You're awesome! ✨";
+      };
+      document.getElementById("hoverText").onmouseout = function () {
+        this.style.color = "black";
+        this.innerText = "Hover over me!";
+      };
+    </script>
+  </body>
+</html>

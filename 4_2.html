@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling in JavaScript</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        #hoverText { color: black; font-weight: bold; }
+        #inputBox{ padding: 5px; border: 1px solid gray; }
+        
+    </style>
+</head>
+<body onload="pageLoaded()">
+
+    <h1>JavaScript Event Handling Example</h1>
+
+    <!-- Click Event -->
+    <button onclick="changeText(this)">Click Me</button>
+
+    <!-- Keyboard Events -->
+    <h3>Type something in the box:</h3>
+    <input type="text" id="inputBox" onkeydown="logKeyDown()" onkeyup="logKeyUp()" onkeypress="logKeyPress()" onfocus="changeBg()" onblur="resetBg()">
+
+    <!-- Dropdown Change Event -->
+    <h3>Select a Fruit:</h3>
+    <select onchange="showSelection(this)">
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="orange">Orange</option>
+    </select>
+
+    <!-- Mouse Events -->
+    <h3>Hover over this text:</h3>
+    <p id="hoverText" onmouseover="changeColor(this)" onmouseout="resetColor(this)">Hover over me!</p>
+
+    <script>
+        // Page Load Event
+        function pageLoaded() {
+            alert("Page has fully loaded!");
+        }
+
+        // Click Event
+        function changeText(button) {
+            button.innerText = "You Clicked Me!";
+        }
+
+        // Keyboard Events
+        function logKeyDown() {
+            console.log("Key is pressed down.");
+        }
+
+        function logKeyUp() {
+            console.log("Key is released.");
+        }
+
+        function logKeyPress() {
+            console.log("Key is pressed.");
+        }
+
+        // Focus and Blur Event
+        function changeBg() {
+            document.getElementById("inputBox").style.backgroundColor = "#ffffcc";
+        }
+
+        function resetBg() {
+            document.getElementById("inputBox").style.backgroundColor = "white";
+            alert("You left the input field!");
+        }
+
+        // Change Event
+        function showSelection(selectElement) {
+            alert("You selected: " + selectElement.value);
+        }
+
+        // Mouse Events
+        function changeColor(element) {
+            element.style.color = "blue";
+            element.innerText = "You're hovering!";
+        }
+
+        function resetColor(element) {
+            element.style.color = "black";
+            element.innerText = "Hover over me!";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Output Methods</title>
+</head>
+<body>
+
+    <h1>JavaScript Output Methods</h1>
+
+    <button onclick="useDocumentWrite()">Use document.write()</button>
+    <button onclick="useInnerHTML()">Use innerHTML</button>
+    <button onclick="useTextContent()">Use textContent</button>
+
+    <div id="output"></div>
+
+    <script>
+        // Method 1: document.write (Overwrites the whole document if used after page load)
+        function useDocumentWrite() {
+            document.write("<h2>This is from document.write()</h2>");
+        }
+
+        // Method 2: innerHTML (Modifies content inside an element)
+        function useInnerHTML() {
+            document.getElementById("output").innerHTML = "<strong>This is from innerHTML</strong>";
+        }
+
+        // Method 3: textContent (Modifies text only, ignores HTML)
+        function useTextContent() {
+            document.getElementById("output").textContent = "<b>This is from textContent</b>";
+        }
+    </script>
+
+</body>
+</html>

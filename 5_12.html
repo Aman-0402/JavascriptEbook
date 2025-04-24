@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set Form Field Values</title>
+</head>
+<body>
+
+    <!-- Label and input field for email -->
+    <label for="email">Enter your email:</label>
+    <input type="email" id="email">
+    
+    <!-- Button to trigger the setEmail() function -->
+    <button onclick="setEmail()">Set Email</button>
+
+    <script>
+        // Function to set a predefined email value in the input field
+        function setEmail() {
+            document.getElementById("email").value = "example@gmail.com";
+        }
+    </script>
+
+</body>
+</html>

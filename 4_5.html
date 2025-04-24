@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Handling Examples</title>
+</head>
+<body>
+
+  <h2>1. HTML Attribute Event</h2>
+  <button onclick="sayHi()">Click (HTML Attribute)</button>
+
+  <h2>2. DOM Event Property</h2>
+  <button id="domBtn">Click (DOM Event)</button>
+
+  <h2>3. addEventListener</h2>
+  <button id="listenerBtn">Click (addEventListener)</button>
+
+  <script>
+    // HTML Attribute Event
+    function sayHi() {
+      alert("Hi from HTML attribute event!");
+    }
+
+    // DOM Event Property
+    document.getElementById("domBtn").onclick = function() {
+      alert("Hi from DOM event property!");
+    };
+
+    // addEventListener
+    const btn = document.getElementById("listenerBtn");
+    btn.addEventListener("click", function () {
+      alert("Hi from addEventListener!");
+    });
+  </script>
+
+</body>
+</html>
