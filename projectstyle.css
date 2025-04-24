@@ -1,0 +1,81 @@
+/* style.css */
+
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --card-bg: #fff;
+    --accent-color: #4CAF50;
+  }
+  
+  body.dark-mode {
+    --bg-color: #1f1f1f;
+    --text-color: #eee;
+    --card-bg: #2a2a2a;
+    --accent-color: #90ee90;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  #themeToggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, background-color 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: var(--card-bg);
+    margin-top: 2rem;
+    color: var(--text-color);
+  }
+  

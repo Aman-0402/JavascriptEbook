@@ -1,0 +1,58 @@
+<!-- projects/word-counter.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter</title>
+  <link rel="stylesheet" href="projectstyle.css">
+  <style>
+    .word-counter-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    textarea {
+      width: 80%;
+      height: 150px;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .btn {
+      padding: 0.8rem 1.5rem;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .count {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="word-counter-container">
+    <h1>Word Counter</h1>
+    <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+    <button class="btn" onclick="countWords()">Count Words</button>
+    <div class="count" id="wordCount">Word count will appear here</div>
+  </div>
+
+  <script>
+    function countWords() {
+      const text = document.getElementById("textInput").value.trim();
+      const words = text.split(/\s+/).filter(word => word.length > 0);
+      document.getElementById("wordCount").textContent = `Word Count: ${words.length}`;
+    }
+  </script>
+</body>
+</html>

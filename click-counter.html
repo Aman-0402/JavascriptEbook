@@ -1,0 +1,54 @@
+<!-- projects/click-counter.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Counter</title>
+  <link rel="stylesheet" href="projectstyle.css">
+  <style>
+    .counter-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .count {
+      font-size: 4rem;
+      margin: 1rem 0;
+    }
+    .btn {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-container">
+    <h1>Click Counter</h1>
+    <div class="count" id="count">0</div>
+    <button class="btn" id="incrementBtn">Click Me</button>
+  </div>
+
+  <script>
+    const countDisplay = document.getElementById("count");
+    const incrementBtn = document.getElementById("incrementBtn");
+    let count = 0;
+
+    incrementBtn.addEventListener("click", () => {
+      count++;
+      countDisplay.textContent = count;
+    });
+  </script>
+</body>
+</html>

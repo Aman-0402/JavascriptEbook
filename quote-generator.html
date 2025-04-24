@@ -1,0 +1,55 @@
+<!-- projects/random-quote-generator.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Quote Generator</title>
+  <link rel="stylesheet" href="projectstyle.css" />
+  <style>
+    .quote-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .quote {
+      font-size: 1.8rem;
+      margin: 2rem;
+      color: #333;
+    }
+    .btn {
+      padding: 1rem 2rem;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-container">
+    <h1>Random Quote Generator</h1>
+    <div class="quote" id="quote">Click the button to see a quote!</div>
+    <button class="btn" onclick="generateQuote()">New Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      "The best way to get started is to quit talking and begin doing.",
+      "Don't let yesterday take up too much of today.",
+      "It's not whether you get knocked down, it's whether you get up.",
+      "If you are working on something exciting, it will keep you motivated.",
+      "Success is not in what you have, but who you are."
+    ];
+
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quote").textContent = quotes[randomIndex];
+    }
+  </script>
+</body>
+</html>

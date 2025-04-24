@@ -1,0 +1,76 @@
+<!-- projects/image-slider.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Slider</title>
+  <link rel="stylesheet" href="projectstyle.css" />
+  <style>
+    .slider-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .slider-img {
+      max-width: 90%;
+      max-height: 500px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin-bottom: 1rem;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
+    .btn {
+      padding: 0.8rem 1.5rem;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <h1>Image Slider</h1>
+    <img src="13.jpg" id="slider" class="slider-img" alt="Slider Image" />
+    <div class="btn-group">
+      <button class="btn" onclick="prevImage()">Previous</button>
+      <button class="btn" onclick="nextImage()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      "13.jpg",
+      "17.jpg",
+      "15.jpg",
+      "18.jpg",
+    ];
+
+    let currentIndex = 0;
+    const slider = document.getElementById("slider");
+
+    function showImage(index) {
+      slider.src = images[index];
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+   
+  </script>
+</body>
+</html>
