@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Changing Bulb</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 150px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Color Changing Bulb</h2>
+  <img id="myBulb" src="1.jpg">
+  <div class="status" id="bulbStatus"></div>
+
+  <script>
+    const bulb = document.getElementById("myBulb");
+    const status = document.getElementById("bulbStatus");
+
+    const colors = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
+    let currentColorIndex = 0;
+
+    function changeBulbColor() {
+      currentColorIndex = (currentColorIndex + 1) % colors.length;
+      const newColor = colors[currentColorIndex];
+      bulb.src = newColor;
+      
+    }
+
+    setInterval(changeBulbColor, 500);
+  </script>
+
+</body>
+</html>
