@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Input & Validation Demo</title>
+  <script src="form.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    input, select {
+      margin: 8px 0;
+      padding: 8px;
+      width: 300px;
+    }
+    .error {
+      color: red;
+    }
+    .loading {
+      display: none;
+      color: blue;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>User Registration Form</h2>
+
+  <form id="userForm" onsubmit="return handleSubmit(event)">
+    <label for="username">Username:</label><br />
+    <input type="text" id="username" name="username" placeholder="Enter username" /><br />
+
+    <label for="age">Age:</label><br />
+    <input type="text" id="age" name="age" placeholder="Enter your age" /><br />
+
+    <label for="email">Email:</label><br />
+    <input type="email" id="email" name="email" placeholder="Enter your email" /><br />
+
+    <label for="gender">Gender:</label><br />
+    <select id="gender" name="gender">
+      <option value="">--Select--</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select><br />
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="loading" class="loading">Submitting your form, please wait...</div>
+  <div id="message" class="error"></div>
+
+</body>
+</html>
