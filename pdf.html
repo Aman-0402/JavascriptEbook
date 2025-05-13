@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Links Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .pdf-container {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px;
+    }
+    .pdf-wrapper {
+      width: 30%;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      text-align: center;
+    }
+    .pdf-wrapper a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #4CAF50;
+      font-weight: bold;
+      display: block;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #ffffff;
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .pdf-wrapper a:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+    footer {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>JS GLOBAL QUESTION PAPER</h1>
+    <p>THESE ARE GLOBAL QUESTION TO SOLVE</p>
+  </header>
+
+  <div class="pdf-container">
+    <div class="pdf-wrapper">
+      <h2>JS GLOBAL QUESTION PAPER 1</h2>
+      <a href="Q1.pdf" target="_blank">Open PDF 1</a>
+    </div>
+    <div class="pdf-wrapper">
+      <h2>JS GLOBAL QUESTION PAPER 2</h2>
+      <a href="Q2.pdf" target="_blank">Open PDF 2</a>
+    </div>
+    <div class="pdf-wrapper">
+      <h2>JS GLOBAL QUESTION PAPER 3</h2>
+      <a href="Q3.pdf" target="_blank">Open PDF 3</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; ALL THE BEST</p>
+  </footer>
+</body>
+</html>
